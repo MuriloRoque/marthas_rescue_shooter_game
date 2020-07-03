@@ -172,7 +172,9 @@ Father: "It's a long story, but a very good one, it all began when I..."
 
 ## Player
 
-The player will control a fighter plane that can initially shoot one missile up at a normal speed, the player can increase the firepower and speed by getting bonuses at the end of each stage.
+The player will control a fighter plane that can initially shoot one missile up at a normal speed and take up to 3 hits before being destroyed, the player can increase the firepower and speed by getting bonuses at the end of each stage.
+
+![player_plane](src/assets/images/player_plane.png)
 
 ## Stages
 
@@ -251,4 +253,3 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
 
 - Thanks to [OpenGameArt](https://opengameart.org/) for providing the free assets I used in this game. The full list of authors is bellow:
 
-  
