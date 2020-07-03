@@ -200,17 +200,17 @@ This is the description of each type of enemy's features:
 
 Each boss will behave differently:
 
-Chapter 1: Boss will shoot missiles down and diagonally, needs 15 hits to be destroyed.
+- Chapter 1: Boss will shoot missiles down and diagonally, needs 15 hits to be destroyed.
 
-Chapter 2: Boss will shoot double missiles down with bombs, needs 20 hits to be destroyed.
+- Chapter 2: Boss will shoot double missiles down with bombs, needs 20 hits to be destroyed.
 
-Chapter 3: Boss will shoot chasing missiles at the player, needs 25 hits to be destroyed.
+- Chapter 3: Boss will shoot chasing missiles at the player, needs 25 hits to be destroyed.
 
-Chapter 4: Boss will shoot triple missiles down at a high speed, needs 30 hits to be destroyed.
+- Chapter 4: Boss will shoot triple missiles down at a high speed, needs 30 hits to be destroyed.
 
-Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
+- Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
 
-Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
+- Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
 
 ## Bonuses
 
@@ -233,3 +233,22 @@ This project was developed in these stages:
 - Stage 5: Creating the project's classes and tests (1 day).
 - Stage 6: Testing the gameplay, fixing bugs and deployment (1 day).
 
+# Making Of
+
+This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](https://webpack.js.org/) and Javascript.
+
+# Acknowledgements
+
+- Big thanks to [Ikraam Ghoor](https://github.com/ikraamg), who helped me building this story's introduction.
+
+- This project was built during my course at [Microverse](https://www.microverse.org/), which is an amazing school where I learned how to program. Also, Microverse provided me with an [API](https://www.notion.so/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3) to keep the player's scores.
+
+- Thanks to the following TSEs who reviewed my project:
+
+  - TSE 1
+  - TSE 2
+  - TSE 3
+
+- Thanks to [OpenGameArt](https://opengameart.org/) for providing the free assets I used in this game. The full list of authors is bellow:
+
+  
