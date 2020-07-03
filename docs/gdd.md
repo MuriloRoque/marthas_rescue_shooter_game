@@ -174,7 +174,7 @@ Father: "It's a long story, but a very good one, it all began when I..."
 
 The player will control a fighter plane that can initially shoot one missile up at a normal speed and take up to 3 hits before being destroyed, the player can increase the firepower and speed by getting bonuses at the end of each stage.
 
-![player_plane](./src/assets/images/player_plane.png)
+![player_plane](../src/assets/images/player_plane.png)
 
 ## Stages
 
