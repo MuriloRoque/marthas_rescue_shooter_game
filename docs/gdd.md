@@ -15,7 +15,7 @@ Now everything depends on you (the player) to guide her in this journey, but don
 
 ## Chapter 1 (Weingut I)
 
-Martha has arrived at the first command outpost.
+Martha has arrived at the 1st command outpost.
 
 Martha: "This is it, the beginning of my mission, I will never give up, I need to save him!"
 
@@ -32,6 +32,31 @@ Martha: "I guess he didn't know where my father is, but I found a note here!"
 Note: "Find the giant"
 
 Martha: "What does that mean?"
+
+** bonus **
+
+Nigel: "Martha, congratulations on destroying this outpost, the agency sent you a gift, please choose one of them:"
+
+## Chapter 2 (Battery Moltke)
+
+Martha has arrived at the 2nd command outpost.
+
+Martha: "Let's keep on moving, hang in there, dad!"
+
+** battle **
+
+Boss: "Welcome, this will be the end, prepare yourself!"
+Martha: "I'm ready to rumble!"
+
+** BOSS battle **
+
+Martha: "Tell me where he is now!"
+
+Boss: "You won't get away with this, the seven must live!"
+
+Martha: "What do you mean?"
+
+Martha: "He's gone..."
 
 ** bonus **
 
