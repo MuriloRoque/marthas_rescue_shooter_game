@@ -4,7 +4,7 @@ export default {
   type: Phaser.AUTO,
   width: 800,
   height: 600,
-  backgroundColor: "#FFFF00",
+  backgroundColor: "#ffffff",
   physics: {
     default: "arcade",
     arcade: {
