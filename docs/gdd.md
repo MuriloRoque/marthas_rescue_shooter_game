@@ -222,3 +222,14 @@ At the end of each stage, the player will be able to choose one out of two rando
 - Add shield
 - Increase attack speed by 20%
 
+# Developer's Notes
+
+This project was developed in these stages:
+
+- Stage 1: Learning how to use Phaser 3, following tutorials and how to setup a game's structure built with Javascript (1 day).
+- Stage 2: Building this GDD (0.5 day).
+- Stage 3: Creating the project's codes organizational structure (0.5 day).
+- Stage 4: Creating the project's scenes (1 day)
+- Stage 5: Creating the project's classes and tests (1 day).
+- Stage 6: Testing the gameplay, fixing bugs and deployment (1 day).
+
