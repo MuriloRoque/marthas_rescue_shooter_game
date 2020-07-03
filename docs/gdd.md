@@ -20,9 +20,9 @@ Martha: "This is it, the beginning of my mission, I will never give up, I need t
 
 ** battle **
 
-Boss: "How dare you invade my outpost? Who are you?"
+Philip (Boss): "How dare you invade my outpost? Who are you?"
 Martha: "Where's him?"
-Boss: "Who are you talking about? Get her!"
+Philip (Boss): "Who are you talking about? Get her!"
 
 ** BOSS battle **
 
@@ -44,14 +44,14 @@ Martha: "Let's keep on moving, hang in there, dad!"
 
 ** battle **
 
-Boss: "Welcome, this will be the end, prepare yourself!"
+Karl (Boss): "Welcome, this will be the end, prepare yourself!"
 Martha: "I'm ready to rumble!"
 
 ** BOSS battle **
 
 Martha: "Tell me where he is now!"
 
-Boss: "You won't get away with this, the seven must live!"
+Karl (Boss): "You won't get away with this, the seven must live!"
 
 Martha: "What do you mean?"
 
@@ -69,7 +69,7 @@ Martha: "It's only the beginning, let's move!"
 
 ** battle **
 
-Boss: "Give up already, you won't get past me!"
+Robert (Boss): "Give up already, you won't get past me!"
 Martha: "Don't flatter yourself, come on!"
 
 ** BOSS battle **
@@ -92,7 +92,7 @@ Martha: "Almost there, I must not fail!"
 
 ** battle **
 
-Boss: "This is the end of the road for you!"
+Hermann (Boss): "This is the end of the road for you!"
 Martha: "It is the end of the road, but not for me!"
 
 ** BOSS battle **
@@ -102,6 +102,37 @@ Martha: "What is that? A chest?"
 ** opens the chest **
 
 Martha: "There's a toy castle inside, very curious."
+
+** bonus **
+
+Nigel: "Martha, congratulations on destroying this outpost, the agency sent you a gift, please choose one of them:"
+
+## Chapter 5 (Wolf's Lair)
+
+Martha has arrived at the 5th command outpost.
+
+Martha: "This is the last command post, this must contain the final piece of the puzzle!"
+
+** battle **
+
+Heinrich (Boss): "You have finally arrived, let me give you a very warm welcome!"
+Martha: "This is for my father, be gone!"
+
+** BOSS battle **
+
+Martha: "I have destroyed the last outpost and found nothing."
+
+Martha: "Wait a minute, the clues must mean something."
+
+Nigel: "That's right, Martha, put them together!"
+
+Martha: "The sleepless mountain, it must be the Owl Mountains!"
+
+Martha: "The toy castle, could it be Książ Castle?"
+
+Nigel: "Yes, and I heard the Germans are building seven massive underground bases in that location!"
+
+Martha: "Wait a minute, the 'Giant'! It must be Project Riese, that's where my father is! We must not waste time, let's go!"
 
 ** bonus **
 
