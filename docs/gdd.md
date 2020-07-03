@@ -185,10 +185,26 @@ Each stage will have a different type of terrain and new enemy types:
 
 This is the description of each type of enemy's features:
 
-- Fighter: Shoots single missiles down
-- Bomber: Shoots single bombs down
-- Chaser: Chases the player's plane and self-destructs
-- Attack Helicopter: Shoots double missiles down
-- Attack Airplane: Shoots single missiles down at a high speed
-- Multirole: Moves slowly but shoots missiles down and diagonally
+- Fighter: Shoots single missiles down.
+- Bomber: Shoots single bombs down.
+- Chaser: Chases the player's plane and self-destructs.
+- Attack Helicopter: Shoots double missiles down.
+- Attack Airplane: Shoots single missiles down at a high speed.
+- Multirole: Moves slowly but shoots missiles down and diagonally.
+
+## Bosses
+
+Each boss will behave differently:
+
+Chapter 1: Boss will shoot missiles down and diagonally, needs 15 hits to be destroyed.
+
+Chapter 2: Boss will shoot double missiles down with bombs, needs 20 hits to be destroyed.
+
+Chapter 3: Boss will shoot chasing missiles at the player, needs 25 hits to be destroyed.
+
+Chapter 4: Boss will shoot triple missiles down at a high speed, needs 30 hits to be destroyed.
+
+Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
+
+Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
 
