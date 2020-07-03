@@ -175,28 +175,41 @@ Father: "It's a long story, but a very good one, it all began when I..."
 The player will control a fighter plane that can initially shoot one missile up at a normal speed and take up to 3 hits before being destroyed, the player can increase the firepower and speed by getting bonuses at the end of each stage.
 
 ![player_plane](../src/assets/images/player_plane.png)
+![explosion](../src/assets/images/explosion)
 
 ## Stages
 
 Each stage will have a different type of terrain and new enemy types:
 
 - Chapter 1: { terrain: Desert, enemy: Fighter }
+![desert](../src/assets/images/desert.png)
 - Chapter 2: { terrain: Oasis, enemy: Bomber }
+![oasis](../src/assets/images/oasis.png)
 - Chapter 3: { terrain: Swamp, enemy: Chaser }
+![swamp](../src/assets/images/swamp.png)
 - Chapter 4: { terrain: Forest, enemy: Attack Helicopter }
+![forest](../src/assets/images/forest.png)
 - Chapter 5: { terrain: River, enemy: Attack Airplane }
+![river](../src/assets/images/river.png)
 - Chapter 6: { terrain: Warzone, enemy: Multirole }
+![warzone](../src/assets/images/warzone.png)
 
 ## Enemy
 
 This is the description of each type of enemy's features:
 
 - Fighter: Shoots single missiles down.
+![fighter](../src/assets/images/fighter.png)
 - Bomber: Shoots single bombs down.
+![bomber](../src/assets/images/bomber.png)
 - Chaser: Chases the player's plane and self-destructs.
+![chaser](../src/assets/images/chaser.png)
 - Attack Helicopter: Shoots double missiles down.
+![attack_hel](../src/assets/images/attack_hel.png)
 - Attack Airplane: Shoots single missiles down at a high speed.
+![attack_air](../src/assets/images/attack_air.png)
 - Multirole: Moves slowly but shoots missiles down and diagonally.
+![multirole](../src/assets/images/multirole.png)
 
 ## Bosses
 
@@ -213,6 +226,17 @@ Each boss will behave differently:
 - Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
 
 - Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
+
+![boss_plane](../src/assets/images/boss.png)
+
+## Attacks
+
+There are two types of attacks, missiles and bombs, the player takes one damage from each hit:
+
+- Missiles: The area is small.
+![missile](../src/assets/images/missile.png)
+- Bombs: The area is big.
+![bomb](../src/assets/images/bomb.png)
 
 ## Bonuses
 
@@ -253,3 +277,14 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
 
 - Thanks to [OpenGameArt](https://opengameart.org/) for providing the free assets I used in this game. The full list of authors is bellow:
 
+  - Airplanes: [Spring](https://opengameart.org/users/spring)
+  - Helicopter: [morgan3D](https://opengameart.org/users/morgan3d)
+  - Boss Planes: [MNDV.ecb](https://opengameart.org/users/mndvecb)
+  - Bombs: [MSavioti](https://opengameart.org/users/msavioti)
+  - Missiles: [samoliver](https://opengameart.org/users/samoliver)
+  - Explosions: [Tiao Ferreira](https://opengameart.org/users/tiao-ferreira)
+  - Desert: [Leonard pabin](https://opengameart.org/users/leonard-pabin)
+  - Oasis and Swamp: [bluecarrot16](https://opengameart.org/users/bluecarrot16)
+  - Forest: [surt](https://opengameart.org/users/surt)
+  - River: [bernhard1020](https://opengameart.org/users/bernhard1020)
+  - Warzone: [Canvas Digital Studios](https://opengameart.org/users/canvas-digital-studios)
