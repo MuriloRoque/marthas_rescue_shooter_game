@@ -62,3 +62,26 @@ Martha: "He's gone..."
 
 Nigel: "Martha, congratulations on destroying this outpost, the agency sent you a gift, please choose one of them:"
 
+## Chapter 3 (B8 Bergkristall)
+
+Martha has arrived at the 3rd command outpost.
+
+Martha: "It's only the beginning, let's move!"
+
+** battle **
+
+Boss: "Give up already, you won't get past me!"
+Martha: "Don't flatter yourself, come on!"
+
+** BOSS battle **
+
+Martha: "This is the third one and I still got nothing. Huh, what's that written on the wall?"
+
+Wall: "Your destiny is in the sleepless mountain"
+
+Martha: "Hmmm"
+
+** bonus **
+
+Nigel: "Martha, congratulations on destroying this outpost, the agency sent you a gift, please choose one of them:"
+
