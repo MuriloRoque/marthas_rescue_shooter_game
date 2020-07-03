@@ -74,8 +74,11 @@ export default class PreloaderScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     this.load.image('start_button', 'src/assets/images/button_start.png');
+    this.load.image('start_button_click', 'src/assets/images/button_start_click.png');
     this.load.image('options_button', 'src/assets/images/button_options.png');
+    this.load.image('options_button_click', 'src/assets/images/button_options_click.png');
     this.load.image('credits_button', 'src/assets/images/button_credits.png');
+    this.load.image('credits_button_click', 'src/assets/images/button_credits_click.png');
     this.load.image('logo', 'src/assets/images/logo.png');
     this.load.audio('main_menu_music', ['src/assets/audio/main_menu.mp3']);
   }
