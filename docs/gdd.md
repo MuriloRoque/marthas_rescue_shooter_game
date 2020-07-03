@@ -138,3 +138,33 @@ Martha: "Wait a minute, the 'Giant'! It must be Project Riese, that's where my f
 
 Nigel: "Martha, congratulations on destroying this outpost, the agency sent you a gift, please choose one of them:"
 
+## Chapter 6 (Project Riese)
+
+Martha: "Dad, I'm coming, hang in there!"
+
+** battle **
+
+Adolf (Boss): "I can't believe you defeated my commanders!"
+Martha: "Release my father and give up right now if you want to live."
+Adolf (Boss): "Unfortunately for you, this fight won't be as easy as the previous ones!"
+
+** BOSS battle **
+
+Martha: "He's unconscious, I must find my father and leave as fast as possible."
+
+Father: "Martha, in here!"
+
+Martha: "I have finally found you, come on, we don't have much time!"
+
+** huge explosion **
+
+Martha: "I am so happy I found you, you must go back to England, you will be safe there."
+
+Father: "Martha, this war is far from over, I won't stop fighting"
+
+Martha: "How did you end up being captured?"
+
+Father: "It's a long story, but a very good one, it all began when I..."
+
+* Story continues in the next game *
+
