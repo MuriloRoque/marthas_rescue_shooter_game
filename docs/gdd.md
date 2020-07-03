@@ -168,3 +168,27 @@ Father: "It's a long story, but a very good one, it all began when I..."
 
 * Story continues in the next game *
 
+# Gameplay
+
+## Stages
+
+Each stage will have a different type of terrain and new enemy types:
+
+- Chapter 1: { terrain: Desert, enemy: Fighter }
+- Chapter 2: { terrain: Oasis, enemy: Bomber }
+- Chapter 3: { terrain: Swamp, enemy: Chaser }
+- Chapter 4: { terrain: Forest, enemy: Attack Helicopter }
+- Chapter 5: { terrain: River, enemy: Attack Airplane }
+- Chapter 6: { terrain: Warzone, enemy: Multirole }
+
+## Enemy
+
+This is the description of each type of enemy's features:
+
+- Fighter: Shoots single missiles down
+- Bomber: Shoots single bombs down
+- Chaser: Chases the player's plane and self-destructs
+- Attack Helicopter: Shoots double missiles down
+- Attack Airplane: Shoots single missiles down at a high speed
+- Multirole: Moves slowly but shoots missiles down and diagonally
+
