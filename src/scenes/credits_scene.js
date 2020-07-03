@@ -1,0 +1,156 @@
+import Phaser from "phaser";
+import config from '../config/config';
+
+export default class CreditsScene extends Phaser.Scene {
+  constructor () {
+    super('Credits');
+  }
+
+  preload () {
+    this.load.image('murilo', "src/assets/images/murilo.png");
+    this.load.image('microverse', "src/assets/images/microverse.png");
+    this.load.image('openart', "src/assets/images/openart.webp");
+  }
+
+  create () {
+    this.cameras.main.setBackgroundColor('#000')
+    this.creditsText = this.add.text(0, 0, 'Credits', { fontSize: '32px', fill: '#fff' });
+    this.image1 = this.add.image(400, 200, 'murilo');
+    this.madeByText1 = this.add.text(0, 0, "Created By: Murilo Roque", { fontSize: '26px', fill: '#fff' });
+    this.madeByText2 = this.add.text(0, 0, "Big thanks to Ikraam Ghoor,\n\nwho helped me building this story's\n\nintroduction.", { fontSize: '26px', fill: '#fff' });
+    this.madeByText3 = this.add.text(0, 0, "This project was built during\n\nmy course at Microverse!", { fontSize: '26px', fill: '#fff' });
+    this.image2 = this.add.image(400, 200, 'microverse');
+    this.madeByText4 = this.add.text(0, 0, "Thanks to OpenGameArt.org for\n\nproviding the free assets\n\nI used in this game.", { fontSize: '26px', fill: '#fff' });
+    this.image3 = this.add.image(400, 200, 'openart');
+    this.zone = this.add.zone(config.width/2, config.height/2, config.width, config.height);
+
+    Phaser.Display.Align.In.Center(
+      this.creditsText,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.image1,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.madeByText1,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.madeByText2,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.madeByText3,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.image2,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.madeByText4,
+      this.zone
+    );
+
+    Phaser.Display.Align.In.Center(
+      this.image3,
+      this.zone
+    );
+
+    this.image1.setY(800);
+    this.madeByText1.setY(850);
+    this.madeByText2.setY(1100);
+    this.madeByText3.setY(1300);
+    this.image2.setY(1500);
+    this.madeByText4.setY(1800);
+    this.image3.setY(1850);
+
+    this.creditsTween = this.tweens.add({
+      targets: this.creditsText,
+      y: -200,
+      duration: 3000,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.imageTween1 = this.tweens.add({
+      targets: this.image1,
+      y: -200,
+      duration: 13000,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.madeByTween1 = this.tweens.add({
+      targets: this.madeByText1,
+      y: -200,
+      duration: 14000,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.madeByTween2 = this.tweens.add({
+      targets: this.madeByText2,
+      y: -200,
+      duration: 20000,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.madeByTween3 = this.tweens.add({
+      targets: this.madeByText3,
+      y: -200,
+      duration: 25000,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.imageTween2 = this.tweens.add({
+      targets: this.image2,
+      y: -200,
+      duration: 28800,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.madeByTween4 = this.tweens.add({
+      targets: this.madeByText4,
+      y: -200,
+      duration: 35000,
+      delay: 1000,
+      onComplete: function () {
+        this.destroy;
+      }
+    });
+
+    this.imageTween3 = this.tweens.add({
+      targets: this.image3,
+      y: -200,
+      duration: 39000,
+      delay: 1000,
+      onComplete: function () {
+        this.imageTween3.destroy;
+        this.scene.start('Title');
+      }.bind(this)
+    });
+  }
+};
