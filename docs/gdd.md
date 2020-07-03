@@ -170,6 +170,10 @@ Father: "It's a long story, but a very good one, it all began when I..."
 
 # Gameplay
 
+## Player
+
+The player will control a fighter plane that can initially shoot one missile up at a normal speed, the player can increase the firepower and speed by getting bonuses at the end of each stage.
+
 ## Stages
 
 Each stage will have a different type of terrain and new enemy types:
@@ -207,4 +211,14 @@ Chapter 4: Boss will shoot triple missiles down at a high speed, needs 30 hits t
 Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
 
 Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
+
+## Bonuses
+
+At the end of each stage, the player will be able to choose one out of two random bonuses for the next stage:
+
+- Increase move speed by 20%
+- Add one more vertical missile (up to 3)
+- Add one more diagonal missile (up to 3)
+- Add shield
+- Increase attack speed by 20%
 
