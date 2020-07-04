@@ -13,7 +13,7 @@ export default class CreditsScene extends Phaser.Scene {
   }
 
   create () {
-    this.cameras.main.setBackgroundColor('#000')
+    this.cameras.main.setBackgroundColor('#000111');
     this.creditsText = this.add.text(0, 0, 'Credits', { fontSize: '32px', fill: '#fff' });
     this.image1 = this.add.image(400, 200, 'murilo');
     this.madeByText1 = this.add.text(0, 0, "Created By: Murilo Roque", { fontSize: '26px', fill: '#fff' });
@@ -145,7 +145,7 @@ export default class CreditsScene extends Phaser.Scene {
     this.imageTween3 = this.tweens.add({
       targets: this.image3,
       y: -200,
-      duration: 39000,
+      duration: 38800,
       delay: 1000,
       onComplete: function () {
         this.imageTween3.destroy;

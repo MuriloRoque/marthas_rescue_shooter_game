@@ -320,3 +320,4 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
   - River: [bernhard1020](https://opengameart.org/users/bernhard1020)
   - Warzone: [Canvas Digital Studios](https://opengameart.org/users/canvas-digital-studios)
   - Main menu song: [synicmusic](https://opengameart.org/users/cynicmusic)
+  - Checkboxes: [Atrus](https://opengameart.org/users/atrus)
