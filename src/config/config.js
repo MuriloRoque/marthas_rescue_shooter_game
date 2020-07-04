@@ -4,7 +4,8 @@ export default {
   type: Phaser.AUTO,
   width: 800,
   height: 600,
-  backgroundColor: "#ffffff",
+  autoCenter: Phaser.Scale.CENTER_BOTH,
+  backgroundColor: "#FFFF00",
   physics: {
     default: "arcade",
     arcade: {
