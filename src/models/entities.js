@@ -14,7 +14,6 @@ class Entity extends Phaser.GameObjects.Sprite {
   explode(canDestroy) {
     if (!this.getData("isDead")) {
       this.setTexture("explosion");
-      this.play("explosion");
       if (this.shootTimer !== undefined) {
         if (this.shootTimer) {
           this.shootTimer.remove(false);
@@ -103,10 +102,25 @@ class EnemyMissile extends Entity {
   }
 }
 
+class DiagonalRightMissile extends Entity {
+  constructor(scene, x, y) {
+    super(scene, x, y, "missile");
+    this.body.velocity.y = 200;
+    this.body.velocity.x = 200;
+  }
+}
+
+class DiagonalLeftMissile extends Entity {
+  constructor(scene, x, y) {
+    super(scene, x, y, "missile");
+    this.body.velocity.y = 200;
+    this.body.velocity.x = -200;
+  }
+}
+
 export class Fighter extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, "fighter", "Fighter");
-    this.play("fighter");
 
     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
@@ -134,3 +148,48 @@ export class Fighter extends Entity {
     }
   }
 }
+
+export class Boss extends Entity {
+  constructor(scene, x, y) {
+    super(scene, x, y, "boss", "Boss");
+
+    this.shootTimer = this.scene.time.addEvent({
+      delay: 500,
+      callback: function() {
+        this.body.velocity.x = Phaser.Math.Between(-200, 200);
+        var missile = new EnemyMissile(
+          this.scene,
+          this.x,
+          this.y
+        );
+        var diagonalRightMissile = new DiagonalRightMissile(
+          this.scene,
+          this.x,
+          this.y
+        );
+        var diagonalLeftMissile = new DiagonalLeftMissile(
+          this.scene,
+          this.x,
+          this.y
+        );
+        missile.setScale(0.7);
+        diagonalRightMissile.setScale(0.7);
+        diagonalLeftMissile.setScale(0.7);
+        this.scene.enemyMissiles.add(missile);
+        this.scene.enemyMissiles.add(diagonalRightMissile);
+        this.scene.enemyMissiles.add(diagonalLeftMissile);
+      },
+      callbackScope: this,
+      loop: true
+    });
+  }
+
+  onDestroy() {
+    if (this.shootTimer !== undefined) {
+      if (this.shootTimer) {
+        this.shootTimer.remove(false);
+      }
+    }
+  }
+}
+

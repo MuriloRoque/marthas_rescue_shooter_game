@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { Player, Fighter} from "../models/entities"
+import { Player, Fighter, Boss } from "../models/entities"
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -7,10 +7,6 @@ export default class GameScene extends Phaser.Scene {
   }
 
   preload () {
-    this.load.spritesheet("explosion", "src/assets/images/explosion.png", {
-      frameWidth: 32,
-      frameHeight: 32
-    });
     this.load.image("boss", "src/assets/images/boss.png");
     this.load.image("desert", "src/assets/images/desert.png");
     this.load.image("missile", "src/assets/images/missile.png");
@@ -50,13 +46,14 @@ export default class GameScene extends Phaser.Scene {
     this.enemies = this.add.group();
     this.enemyMissiles = this.add.group();
     this.playerMissiles = this.add.group();
+    this.stopEnemy = false;
 
     this.time.addEvent({
       delay: 1000,
       callback: function() {
         var enemy = null;
 
-        if (Phaser.Math.Between(0, 10) >= 3) {
+        if (Phaser.Math.Between(0, 10) >= 3 && this.stopEnemy === false) {
           enemy = new Fighter(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -65,12 +62,28 @@ export default class GameScene extends Phaser.Scene {
         }
     
         if (enemy !== null) {
-          enemy.setScale(0.3);
+          enemy.setScale(-0.3);
           this.enemies.add(enemy);
         }
       },
       callbackScope: this,
       loop: true
+    });
+
+    this.time.addEvent({
+      delay: 40000,
+      callback: function() {
+        this.stopEnemy = true;
+        var boss = null;
+
+        var boss = new Boss(this, 400, 100);
+
+        if (boss !== null) {
+          boss.setScale(0.8);
+          this.enemies.add(boss);
+        }
+      },
+      callbackScope: this,
     });
 
     this.physics.add.collider(this.playerMissiles, this.enemies, function(playerMissile, enemy) {
