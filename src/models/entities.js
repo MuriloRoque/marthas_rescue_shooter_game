@@ -36,9 +36,10 @@ class Entity extends Phaser.GameObjects.Sprite {
 }
 
 export class Player extends Entity {
-  constructor(scene, x, y, key, hp) {
+  constructor(scene, x, y, key, hp, score) {
     super(scene, x, y, key, "Player");
     this.hp = hp;
+    this.score = score;
 
     this.setData("speed", 200);
 

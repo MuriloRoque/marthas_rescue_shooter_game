@@ -4,6 +4,8 @@ import { Player, Fighter, Boss } from "../models/entities"
 let life1;
 let life2;
 let life3;
+let scoreText;
+let score = 0;
 
 export default class GameScene extends Phaser.Scene {
   constructor () {
@@ -25,6 +27,8 @@ export default class GameScene extends Phaser.Scene {
 
   create () {
     this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
+
+    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
     life1 = this.add.image(750, 50, 'playerPlane').setDisplaySize(50, 50);
     life2 = this.add.image(700, 50, 'playerPlane').setDisplaySize(50, 50);
@@ -53,7 +57,7 @@ export default class GameScene extends Phaser.Scene {
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
       "playerPlane",
-      3
+      3, 0
     );
     this.player.setScale(0.3);
 
@@ -114,6 +118,8 @@ export default class GameScene extends Phaser.Scene {
           if(enemy.hp === 0){
             enemy.explode(true);
             playerMissile.destroy();
+            score += 100;
+            scoreText.setText('Score: ' + score);
           }
         }
         else{
@@ -122,6 +128,8 @@ export default class GameScene extends Phaser.Scene {
           }
           enemy.explode(true);
           playerMissile.destroy();
+          score += 10;
+          scoreText.setText('Score: ' + score);
         }
       }
     });
