@@ -1,23 +1,42 @@
 import Phaser from "phaser";
 import { Player, Fighter, Boss } from "../models/entities"
 
+let life1;
+let life2;
+let life3;
+
 export default class GameScene extends Phaser.Scene {
   constructor () {
     super('Game');
   }
 
   preload () {
+    this.load.spritesheet("explosion", "src/assets/images/explosion.png", {
+      frameWidth: 32,
+      frameHeight: 32
+    });
     this.load.image("boss", "src/assets/images/boss.png");
     this.load.image("desert", "src/assets/images/desert.png");
     this.load.image("missile", "src/assets/images/missile.png");
     this.load.image("playerPlane", "src/assets/images/player_plane.png");
     this.load.image("fighter", "src/assets/images/fighter.png");
-    this.load.image("explosion", "src/assets/images/explosion.png");
     this.load.audio('desertMusic', ['src/assets/audio/desert.wav']);
   }
 
   create () {
     this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
+
+    life1 = this.add.image(750, 50, 'playerPlane').setDisplaySize(50, 50);
+    life2 = this.add.image(700, 50, 'playerPlane').setDisplaySize(50, 50);
+    life3 = this.add.image(650, 50, 'playerPlane').setDisplaySize(50, 50);
+
+
+    this.anims.create({
+      key: "explosion",
+      frames: this.anims.generateFrameNumbers("explosion"),
+      frameRate: 20,
+      repeat: 0
+    });
 
     this.music = this.sys.game.globals.music;
     if (this.music.musicOn === true) {
@@ -33,7 +52,8 @@ export default class GameScene extends Phaser.Scene {
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      "playerPlane"
+      "playerPlane",
+      3
     );
     this.player.setScale(0.3);
 
@@ -109,23 +129,41 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
       if (!player.getData("isDead") &&
           !enemy.getData("isDead")) {
-        player.explode(false);
-        player.onDestroy();
-        enemy.explode(true);
+            player.hp -= 1;
+            enemy.explode(true);
+            if(player.hp === 0){
+              player.explode(false);
+              player.onDestroy();
+              enemy.explode(true);
+            }
       }
     });
 
     this.physics.add.overlap(this.player, this.enemyMissiles, function(player, missile) {
       if (!player.getData("isDead") &&
           !missile.getData("isDead")) {
-        player.explode(false);
-        player.onDestroy();
-        missile.destroy();
+            player.hp -= 1;
+            missile.destroy();
+            if(player.hp === 0){
+              player.explode(false);
+              player.onDestroy();
+              missile.destroy();
+            }
       }
     });
   }
 
   update() {
+
+    if(this.player.hp === 2){
+      life3.destroy();
+    }
+    else if(this.player.hp === 1){
+      life2.destroy();
+    }
+    else if(this.player.hp === 0){
+      life1.destroy();
+    }
 
     if (!this.player.getData("isDead")) {
       this.player.update();

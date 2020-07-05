@@ -313,7 +313,7 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
   - Boss Planes: [MNDV.ecb](https://opengameart.org/users/mndvecb)
   - Bombs: [MSavioti](https://opengameart.org/users/msavioti)
   - Missiles: [samoliver](https://opengameart.org/users/samoliver)
-  - Explosions: [Cuzco](https://opengameart.org/users/cuzco)
+  - Explosions: [den_yes](https://opengameart.org/users/denyes)
   - Desert: [Leonard pabin](https://opengameart.org/users/leonard-pabin)
   - Oasis and Swamp: [bluecarrot16](https://opengameart.org/users/bluecarrot16)
   - Forest: [surt](https://opengameart.org/users/surt)
