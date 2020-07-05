@@ -41,7 +41,7 @@ export class Player extends Entity {
     this.setData("speed", 200);
 
     this.setData("isShooting", false);
-    this.setData("timerShootDelay", 10);
+    this.setData("timerShootDelay", 30);
     this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
   }
 
@@ -150,11 +150,13 @@ export class Fighter extends Entity {
 }
 
 export class Boss extends Entity {
-  constructor(scene, x, y) {
+  constructor(scene, x, y, hp) {
     super(scene, x, y, "boss", "Boss");
+    this.hp = hp;
+    this.body.collideWorldBounds = true;
 
     this.shootTimer = this.scene.time.addEvent({
-      delay: 500,
+      delay: 1000,
       callback: function() {
         this.body.velocity.x = Phaser.Math.Between(-200, 200);
         var missile = new EnemyMissile(

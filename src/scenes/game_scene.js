@@ -62,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
         }
     
         if (enemy !== null) {
-          enemy.setScale(-0.3);
+          enemy.setScale(0.3);
           this.enemies.add(enemy);
         }
       },
@@ -71,12 +71,12 @@ export default class GameScene extends Phaser.Scene {
     });
 
     this.time.addEvent({
-      delay: 40000,
+      delay: 10000,
       callback: function() {
         this.stopEnemy = true;
         var boss = null;
 
-        var boss = new Boss(this, 400, 100);
+        var boss = new Boss(this, 400, 80, 15);
 
         if (boss !== null) {
           boss.setScale(0.8);
@@ -88,11 +88,21 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerMissiles, this.enemies, function(playerMissile, enemy) {
       if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
+        if(enemy.constructor.name === "Boss"){
+          enemy.hp -= 1;
+          playerMissile.destroy();
+          if(enemy.hp === 0){
+            enemy.explode(true);
+            playerMissile.destroy();
+          }
         }
-        enemy.explode(true);
-        playerMissile.destroy();
+        else{
+          if (enemy.onDestroy !== undefined) {
+            enemy.onDestroy();
+          }
+          enemy.explode(true);
+          playerMissile.destroy();
+        }
       }
     });
 
