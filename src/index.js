@@ -7,6 +7,7 @@ import CreditsScene from './scenes/credits_scene';
 import OptionsScene from './scenes/options_scene';
 import GameScene from './scenes/game_scene';
 import GameOverScene from './scenes/game_over_scene';
+import Chapter1DialogueScene from './dialogues/chapter1_dialogue'
 import Music from './models/music';
 
 class Game extends Phaser.Game {
@@ -21,6 +22,7 @@ class Game extends Phaser.Game {
     this.scene.add('Options', OptionsScene);
     this.scene.add('Game', GameScene);
     this.scene.add('GameOver', GameOverScene);
+    this.scene.add('Chapter1Dialogue', Chapter1DialogueScene);
     this.scene.start('Boot');
   }
 }

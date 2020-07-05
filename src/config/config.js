@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin.js';
 
 export default {
   type: Phaser.AUTO,
@@ -11,6 +12,14 @@ export default {
     arcade: {
       gravity: { x: 0, y: 0 }
     }
+  },
+  plugins: {
+    scene: [{
+        key: 'rexUI',
+        plugin: UIPlugin,
+        mapping: 'rexUI'
+    },
+    ]
   },
   pixelArt: true,
   roundPixels: true
