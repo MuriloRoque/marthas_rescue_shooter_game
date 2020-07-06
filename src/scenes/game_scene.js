@@ -18,7 +18,6 @@ export default class GameScene extends Phaser.Scene {
       frameHeight: 32
     });
     this.load.image("boss", "src/assets/images/boss.png");
-    this.load.image("desert", "src/assets/images/desert.png");
     this.load.image("missile", "src/assets/images/missile.png");
     this.load.image("playerPlane", "src/assets/images/player_plane.png");
     this.load.image("fighter", "src/assets/images/fighter.png");
@@ -97,6 +96,8 @@ export default class GameScene extends Phaser.Scene {
     this.time.addEvent({
       delay: 10000,
       callback: function() {
+        this.scene.pause();
+        this.scene.launch("Chapter1BossDialogue")
         this.stopEnemy = true;
         var boss = null;
 
