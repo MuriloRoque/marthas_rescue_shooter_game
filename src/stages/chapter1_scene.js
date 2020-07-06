@@ -21,7 +21,7 @@ export default class GameScene1 extends Phaser.Scene {
     this.load.image("missile", "src/assets/images/missile.png");
     this.load.image("playerPlane", "src/assets/images/player_plane.png");
     this.load.image("fighter", "src/assets/images/fighter.png");
-    this.load.audio('desertMusic', ['src/assets/audio/desert.wav']);
+    this.load.audio('desertMusic', ['src/assets/audio/desert.ogg']);
   }
 
   create () {
