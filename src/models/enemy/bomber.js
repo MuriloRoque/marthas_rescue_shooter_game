@@ -14,6 +14,7 @@ export default class Bomber extends Entity {
           this.x,
           this.y
         );
+        missile.setScale(1.5);
         this.scene.enemyMissiles.add(missile);
       },
       callbackScope: this,

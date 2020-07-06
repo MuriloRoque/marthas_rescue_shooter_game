@@ -2,7 +2,7 @@ import Phaser from "phaser";
 import Player from '../models/player';
 import Fighter from '../models/enemy/fighter';
 import Bomber from '../models/enemy/bomber';
-import Boss1 from '../models/bosses/chapter1_boss';
+import Boss2 from '../models/bosses/chapter2_boss';
 
 let life1;
 let life2;
@@ -14,6 +14,7 @@ export default class GameScene2 extends Phaser.Scene {
   }
 
   preload () {
+    this.load.image("bomb", "src/assets/images/bomb.png");
     this.load.image("bomber", "src/assets/images/bomber.png");
     this.load.audio('oasisMusic', ['src/assets/audio/oasis.ogg']);
   }
@@ -109,7 +110,7 @@ export default class GameScene2 extends Phaser.Scene {
         this.stopEnemy = true;
         var boss = null;
 
-        var boss = new Boss1(this, 400, 80, 15);
+        var boss = new Boss2(this, 400, 80, 20);
 
         if (boss !== null) {
           boss.setScale(0.8);
@@ -121,7 +122,7 @@ export default class GameScene2 extends Phaser.Scene {
 
     this.physics.add.collider(this.playerMissiles, this.enemies, function(playerMissile, enemy) {
       if (enemy) {
-        if(enemy.constructor.name === "Boss1"){
+        if(enemy.constructor.name === "Boss2"){
           enemy.hp -= 1;
           playerMissile.destroy();
           if(enemy.hp === 0){
