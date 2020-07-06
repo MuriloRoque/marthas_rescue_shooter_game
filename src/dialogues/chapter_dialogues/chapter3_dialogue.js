@@ -4,7 +4,7 @@ export default class Chapter3DialogueScene extends Phaser.Scene {
   }
 
   preload () {
-    this.load.image("swamp", "src/assets/images/oasis.png");
+    this.load.image("swamp", "src/assets/images/swamp.png");
   }
 
   create () {
