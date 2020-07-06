@@ -7,7 +7,7 @@ export default class Chapter4BonusScene extends Phaser.Scene {
   }
 
   create () {
-    this.add.image(400, 300, 'swamp').setDisplaySize(800, 600);
+    this.add.image(400, 300, 'forest').setDisplaySize(800, 600);
     var dialog = this.rexUI.add.dialog({
       x: 400,
       y: 300,
