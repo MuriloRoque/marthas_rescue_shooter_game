@@ -27,6 +27,7 @@ export default class GameScene1 extends Phaser.Scene {
   }
 
   create () {
+    let myself = this;
     this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
 
     scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
@@ -123,6 +124,10 @@ export default class GameScene1 extends Phaser.Scene {
             playerMissile.destroy();
             score += 100;
             scoreText.setText('Score: ' + score);
+            localStorage.setItem('score', JSON.stringify(score));
+            console.log(myself.player)
+            localStorage.setItem('player', JSON.stringify(myself.player));
+            myself.scene.start("Chapter1EndDialogue");
           }
         }
         else{

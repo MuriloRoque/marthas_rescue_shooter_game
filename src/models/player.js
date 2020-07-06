@@ -1,10 +1,14 @@
 import { Entity } from './entities';
 
 export default class Player extends Entity {
-  constructor(scene, x, y, key, hp, score) {
+  constructor(scene, x, y, key, hp, score, bonus1 = 0, bonus2 = 0, bonus3 = 0, bonus4 = 0) {
     super(scene, x, y, key, "Player");
     this.hp = hp;
     this.score = score;
+    this.bonus1 = bonus1;
+    this.bonus2 = bonus2;
+    this.bonus3 = bonus3;
+    this.bonus4 = bonus4;
 
     this.setData("speed", 200);
 
@@ -38,7 +42,26 @@ export default class Player extends Entity {
   }
 
   update() {
-    this.body.setVelocity(0, 0);
+
+    switch(this.bonus1){
+      case 1:
+        this.setData("speed", 400);
+        break;
+      case 2:
+        this.setData("speed", 280);
+        break;
+      case 3:
+        this.setData("speed", 320);
+        break;
+      case 4:
+        this.setData("speed", 360);
+        break;
+      case 5:
+        this.setData("speed", 400);
+        break;
+    }
+
+    this.body.setVelocity()
     this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
     this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
 

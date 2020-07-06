@@ -275,9 +275,8 @@ At the end of each stage, the player will be able to choose one out of two rando
 
 - Increase move speed by 20%
 - Add one more vertical missile (up to 3)
-- Add one more diagonal missile (up to 3)
-- Add shield
 - Increase attack speed by 20%
+- Add shield
 
 # Developer's Notes
 
