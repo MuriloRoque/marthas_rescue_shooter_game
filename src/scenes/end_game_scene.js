@@ -20,6 +20,11 @@ export default class EndGameScene extends Phaser.Scene {
       this.zone
     );
 
+    Phaser.Display.Align.In.Center(
+      this.madeByText,
+      this.zone
+    );
+
     this.madeByText.setY(850);
 
     this.endGameTween = this.tweens.add({
