@@ -61,7 +61,7 @@ export default class Chaper1DialogueScene extends Phaser.Scene {
   this.print = this.add.text(0, 0, '');
   dialog
       .on('button.click', function () {
-         this.scene.start('Game');
+         this.scene.start('Game1');
       }, this)
       .on('button.over', function (button) {
           button.getElement('background').setStrokeStyle(1, 0xffffff);

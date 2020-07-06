@@ -1,5 +1,7 @@
 import Phaser from "phaser";
-import { Player, Fighter, Boss } from "../models/entities"
+import Player from '../models/player';
+import Fighter from '../models/enemy/fighter';
+import Boss1 from '../models/bosses/chapter1_boss';
 
 let life1;
 let life2;
@@ -7,9 +9,9 @@ let life3;
 let scoreText;
 let score = 0;
 
-export default class GameScene extends Phaser.Scene {
+export default class GameScene1 extends Phaser.Scene {
   constructor () {
-    super('Game');
+    super('Game1');
   }
 
   preload () {
@@ -101,7 +103,7 @@ export default class GameScene extends Phaser.Scene {
         this.stopEnemy = true;
         var boss = null;
 
-        var boss = new Boss(this, 400, 80, 15);
+        var boss = new Boss1(this, 400, 80, 15);
 
         if (boss !== null) {
           boss.setScale(0.8);
@@ -113,7 +115,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerMissiles, this.enemies, function(playerMissile, enemy) {
       if (enemy) {
-        if(enemy.constructor.name === "Boss"){
+        if(enemy.constructor.name === "Boss1"){
           enemy.hp -= 1;
           playerMissile.destroy();
           if(enemy.hp === 0){
@@ -142,7 +144,7 @@ export default class GameScene extends Phaser.Scene {
             enemy.explode(true);
             if(player.hp === 0){
               player.explode(false);
-              player.onDestroy();
+              player.onDestroy('Game1');
               enemy.explode(true);
             }
       }
@@ -155,7 +157,7 @@ export default class GameScene extends Phaser.Scene {
             missile.destroy();
             if(player.hp === 0){
               player.explode(false);
-              player.onDestroy();
+              player.onDestroy('Game1');
               missile.destroy();
             }
       }
