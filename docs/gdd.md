@@ -140,6 +140,8 @@ Nigel: "Martha, congratulations on destroying this outpost, the agency sent you 
 
 ## Chapter 6 (Project Riese)
 
+Martha has arrived at the final command outpost.
+
 Martha: "Dad, I'm coming, hang in there!"
 
 ** battle **
