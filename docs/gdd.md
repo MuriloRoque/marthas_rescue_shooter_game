@@ -253,7 +253,7 @@ Each boss will behave differently:
 
 - Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
 
-- Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
+- Chapter 6: Boss will shoot triple chasing missiles with bombs, needs 40 hits to be destroyed.
 
 ![boss_plane](../src/assets/images/boss.png)
 
