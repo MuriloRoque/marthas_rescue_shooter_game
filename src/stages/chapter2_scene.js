@@ -6,8 +6,6 @@ import Boss1 from '../models/bosses/chapter1_boss';
 let life1;
 let life2;
 let life3;
-let scoreText;
-let score = JSON.parse(localStorage.getItem('score'));
 
 export default class GameScene2 extends Phaser.Scene {
   constructor () {
@@ -15,22 +13,18 @@ export default class GameScene2 extends Phaser.Scene {
   }
 
   preload () {
-    this.load.spritesheet("explosion", "src/assets/images/explosion.png", {
-      frameWidth: 32,
-      frameHeight: 32
-    });
-    this.load.image("boss", "src/assets/images/boss.png");
-    this.load.image("missile", "src/assets/images/missile.png");
-    this.load.image("playerPlane", "src/assets/images/player_plane.png");
     this.load.image("fighter", "src/assets/images/fighter.png");
-    this.load.audio('desertMusic', ['src/assets/audio/desert.wav']);
+    this.load.audio('oasisMusic', ['src/assets/audio/oasis.ogg']);
   }
 
   create () {
     let myself = this;
-    this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
+    this.add.image(400, 300, 'oasis').setDisplaySize(800, 600);
 
-    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+    let bonuses = JSON.parse(localStorage.getItem('bonuses'));
+    let score = JSON.parse(localStorage.getItem('score'));
+
+    let scoreText = this.add.text(16, 16, 'Score: ' + score, { fontSize: '32px', fill: '#000' });
 
     life1 = this.add.image(750, 50, 'playerPlane').setDisplaySize(50, 50);
     life2 = this.add.image(700, 50, 'playerPlane').setDisplaySize(50, 50);
@@ -47,21 +41,19 @@ export default class GameScene2 extends Phaser.Scene {
     this.music = this.sys.game.globals.music;
     if (this.music.musicOn === true) {
       this.sys.game.globals.bgMusic.stop();
-      this.bgMusic = this.sound.add('desertMusic', { volume: 0.5, loop: true });
+      this.bgMusic = this.sound.add('oasisMusic', { volume: 0.5, loop: true });
       this.bgMusic.play();
       this.music.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
       this.sys.game.globals.bgMusic.play();
     }
 
-    let bonuses = JSON.parse(localStorage.getItem('bonuses'));
-
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
       "playerPlane",
-      3, 0, bonuses.bonus1, bonuses.bonus2, bonuses.bonus3, bonuses.bonus4 
+      3, score, bonuses.bonus1, bonuses.bonus2, bonuses.bonus3,
     );
     this.player.setScale(0.3);
 
@@ -128,7 +120,7 @@ export default class GameScene2 extends Phaser.Scene {
             scoreText.setText('Score: ' + score);
             localStorage.setItem('score', JSON.stringify(score));
             localStorage.setItem('player', JSON.stringify(myself.player));
-            this.scene.start("Chapter1Bonus");
+            myself.scene.start("Chapter2EndDialogue");
           }
         }
         else{
@@ -150,7 +142,7 @@ export default class GameScene2 extends Phaser.Scene {
             enemy.explode(true);
             if(player.hp === 0){
               player.explode(false);
-              player.onDestroy('Game1');
+              player.onDestroy('Game2');
               enemy.explode(true);
             }
       }
@@ -163,7 +155,7 @@ export default class GameScene2 extends Phaser.Scene {
             missile.destroy();
             if(player.hp === 0){
               player.explode(false);
-              player.onDestroy('Game1');
+              player.onDestroy('Game2');
               missile.destroy();
             }
       }

@@ -7,7 +7,7 @@ export default class Chapter2BossDialogueScene extends Phaser.Scene {
   }
 
   create () {
-    this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
+    this.add.image(400, 300, 'oasis').setDisplaySize(800, 600);
     var dialog = this.rexUI.add.dialog({
       x: 400,
       y: 300,
@@ -15,11 +15,11 @@ export default class Chapter2BossDialogueScene extends Phaser.Scene {
 
       background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x466D1D),
 
-      title: createLabel(this, 'Chapter 1 - Boss').setDraggable(),
+      title: createLabel(this, 'Chapter 2 - Boss').setDraggable(),
 
       content: createLabel(this, 'The boss appeared!'),
 
-      description: createLabel(this, "Philip (Boss): 'How dare you invade my outpost?\nWho are you?'\nMartha: 'Where's him?'\nPhilip (Boss): 'Who are you talking about?\nGet her!'"),
+      description: createLabel(this, "Karl (Boss): 'Welcome, this will be the end,\nprepare yourself!'\nMartha: 'I'm ready to rumble!'"),
 
       actions: [
           createLabel(this, 'Start fight!')

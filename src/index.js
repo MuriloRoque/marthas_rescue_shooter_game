@@ -9,10 +9,15 @@ import GameOverScene from './scenes/game_over_scene';
 import GameScene1 from './stages/chapter1_scene';
 import GameScene2 from './stages/chapter2_scene';
 import Chapter1DialogueScene from './dialogues/chapter_dialogues/chapter1_dialogue';
+import Chapter2DialogueScene from './dialogues/chapter_dialogues/chapter2_dialogue';
 import Chapter1BossDialogueScene from './dialogues/boss_dialogues/chapter1_boss_dialogue';
+import Chapter2BossDialogueScene from './dialogues/boss_dialogues/chapter2_boss_dialogue';
 import Chapter1EndDialogueScene from './dialogues/chapter_dialogues/chapter1_end_dialogue';
+import Chapter2EndDialogueScene from './dialogues/chapter_dialogues/chapter2_end_dialogue';
 import Chapter1BonusScene from './bonuses/chapter1_bonus';
+import Chapter2BonusScene from './bonuses/chapter2_bonus';
 import Music from './models/music';
+localStorage.clear();
 
 class Game extends Phaser.Game {
   constructor () {
@@ -28,9 +33,13 @@ class Game extends Phaser.Game {
     this.scene.add('Game1', GameScene1);
     this.scene.add('Game2', GameScene2);
     this.scene.add('Chapter1Dialogue', Chapter1DialogueScene);
+    this.scene.add('Chapter2Dialogue', Chapter2DialogueScene);
     this.scene.add('Chapter1BossDialogue', Chapter1BossDialogueScene);
+    this.scene.add('Chapter2BossDialogue', Chapter2BossDialogueScene);
     this.scene.add('Chapter1EndDialogue', Chapter1EndDialogueScene);
+    this.scene.add('Chapter2EndDialogue', Chapter2EndDialogueScene);
     this.scene.add('Chapter1Bonus', Chapter1BonusScene);
+    this.scene.add('Chapter2Bonus', Chapter2BonusScene);
     this.scene.start('Boot');
   }
 }

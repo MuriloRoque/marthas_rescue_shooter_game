@@ -273,10 +273,9 @@ There are two types of attacks, missiles and bombs, the player takes one damage 
 
 At the end of each stage, the player will be able to choose one out of two random bonuses for the next stage:
 
-- Increase move speed by 20%
+- Increase move speed
 - Add one more vertical missile (up to 3)
-- Increase attack speed by 20%
-- Add shield
+- Increase attack speed
 
 # Developer's Notes
 
@@ -321,3 +320,4 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
   - Main menu song: [synicmusic](https://opengameart.org/users/cynicmusic)
   - Checkboxes: [Atrus](https://opengameart.org/users/atrus)
   - Desert song: [mrpoly](https://opengameart.org/users/mrpoly)
+  - Oasis song: [bart](https://opengameart.org/users/bart)

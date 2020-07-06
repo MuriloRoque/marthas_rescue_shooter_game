@@ -1,14 +1,13 @@
 import { Entity } from './entities';
 
 export default class Player extends Entity {
-  constructor(scene, x, y, key, hp, score, bonus1 = 0, bonus2 = 0, bonus3 = 0, bonus4 = 0) {
+  constructor(scene, x, y, key, hp, score, bonus1 = 0, bonus2 = 0, bonus3 = 0) {
     super(scene, x, y, key, "Player");
     this.hp = hp;
     this.score = score;
     this.bonus1 = bonus1;
     this.bonus2 = bonus2;
     this.bonus3 = bonus3;
-    this.bonus4 = bonus4;
 
     switch(this.bonus2){
       case 0:
@@ -32,7 +31,26 @@ export default class Player extends Entity {
     }
 
     this.setData("isShooting", false);
-    this.setData("timerShootDelay", 30);
+    switch(this.bonus3){
+      case 0:
+        this.setData("timerShootDelay", 30);
+        break;
+      case 1:
+        this.setData("timerShootDelay", 26);
+        break;
+      case 2:
+        this.setData("timerShootDelay", 22);
+        break;
+      case 3:
+        this.setData("timerShootDelay", 18);
+        break;
+      case 4:
+        this.setData("timerShootDelay", 14);
+        break;
+      case 5:
+        this.setData("timerShootDelay", 10);
+        break;
+    }
     this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
   }
 
@@ -71,10 +89,33 @@ export default class Player extends Entity {
         this.setData("timerShootTick", this.getData("timerShootTick") + 1);
       }
       else {
-        var missile = new PlayerMissile(this.scene, this.x, this.y);
-        this.scene.playerMissiles.add(missile);
-        missile.setScale(0.5);
-        this.setData("timerShootTick", 0);
+        if(this.bonus1 === 0){
+          var missile = new PlayerMissile(this.scene, this.x, this.y);
+          this.scene.playerMissiles.add(missile);
+          missile.setScale(0.5);
+          this.setData("timerShootTick", 0);
+        }
+        else if(this.bonus1 === 1){
+          var missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
+          var missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
+          this.scene.playerMissiles.add(missile1);
+          this.scene.playerMissiles.add(missile2);
+          missile1.setScale(0.5);
+          missile2.setScale(0.5);
+          this.setData("timerShootTick", 0);
+        }
+        else{
+          var missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
+          var missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
+          var missile3 = new PlayerMissile(this.scene, this.x, this.y);
+          this.scene.playerMissiles.add(missile1);
+          this.scene.playerMissiles.add(missile2);
+          this.scene.playerMissiles.add(missile3);
+          missile1.setScale(0.5);
+          missile2.setScale(0.5);
+          missile3.setScale(0.5);
+          this.setData("timerShootTick", 0);
+        }
       }
     }
   }

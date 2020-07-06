@@ -15,15 +15,14 @@ export default class Chapter1BonusScene extends Phaser.Scene {
 
       background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x466D1D),
 
-      title: createLabel(this, 'Please select a bonus').setDraggable(),
+      title: createLabel(this, 'BONUS').setDraggable(),
 
-      description: createLabel(this, "Nigel: 'Martha, congratulations on\ndestroying this outpost,\nthe agency sent you a gift,\nplease choose one of them:"),
+      content: createLabel(this, "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:"),
 
-      choices: [
+      actions: [
           createLabel(this, 'Missile + (Max 3)'),
           createLabel(this, 'Move Speed'),
-          createLabel(this, 'Attack Speed'),
-          createLabel(this, 'Shield')
+          createLabel(this, 'Attack Speed')
       ],
 
       space: {
@@ -72,12 +71,9 @@ export default class Chapter1BonusScene extends Phaser.Scene {
           case "Attack Speed":
             bonuses.bonus3 += 1;
             break;
-          case "Shield":
-            bonuses.bonus4 += 1;
-            break;
         }
         localStorage.setItem("bonuses", JSON.stringify(bonuses));
-        this.scene.start('Game2');
+        this.scene.start('Chapter2Dialogue');
       }, this)
       .on('button.over', function (button) {
           button.getElement('background').setStrokeStyle(1, 0xffffff);
