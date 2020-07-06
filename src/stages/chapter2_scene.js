@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import Player from '../models/player';
 import Fighter from '../models/enemy/fighter';
+import Bomber from '../models/enemy/bomber';
 import Boss1 from '../models/bosses/chapter1_boss';
 
 let life1;
@@ -13,7 +14,7 @@ export default class GameScene2 extends Phaser.Scene {
   }
 
   preload () {
-    this.load.image("fighter", "src/assets/images/fighter.png");
+    this.load.image("bomber", "src/assets/images/bomber.png");
     this.load.audio('oasisMusic', ['src/assets/audio/oasis.ogg']);
   }
 
@@ -72,18 +73,28 @@ export default class GameScene2 extends Phaser.Scene {
       delay: 1000,
       callback: function() {
         var enemy = null;
-
-        if (Phaser.Math.Between(0, 10) >= 3 && this.stopEnemy === false) {
+        let number = Phaser.Math.Between(0, 10)
+        if (number >= 3 && number <= 6 && this.stopEnemy === false) {
           enemy = new Fighter(
             this,
             Phaser.Math.Between(0, this.game.config.width),
             0
           );
+          if (enemy !== null) {
+            enemy.setScale(0.3);
+            this.enemies.add(enemy);
+          }
         }
-    
-        if (enemy !== null) {
-          enemy.setScale(0.3);
-          this.enemies.add(enemy);
+        else if (number > 6){
+          enemy = new Bomber(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0
+          );
+          if (enemy !== null) {
+            enemy.setScale(0.3);
+            this.enemies.add(enemy);
+          }
         }
       },
       callbackScope: this,
