@@ -321,5 +321,7 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
   - Warzone: [Canvas Digital Studios](https://opengameart.org/users/canvas-digital-studios)
   - Main menu song: [synicmusic](https://opengameart.org/users/cynicmusic)
   - Checkboxes: [Atrus](https://opengameart.org/users/atrus)
-  - Desert song: [mrpoly](https://opengameart.org/users/mrpoly)
+  - Desert song: [yd](https://opengameart.org/users/yd)
+  - Forest song: [mrpoly](https://opengameart.org/users/mrpoly)
   - Oasis song: [bart](https://opengameart.org/users/bart)
+  - Swamp, River and Warzone songs: [Matthew Pablo](https://opengameart.org/users/matthew-pablo)
