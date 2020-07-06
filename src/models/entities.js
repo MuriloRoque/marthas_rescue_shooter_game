@@ -42,6 +42,13 @@ export class EnemyMissile extends Entity {
   }
 }
 
+export class EnemyBomb extends Entity {
+  constructor(scene, x, y) {
+    super(scene, x, y, "bomb");
+    this.body.velocity.y = 200;
+  }
+}
+
 export class DiagonalRightMissile extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, "missile");
