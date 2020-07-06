@@ -19,7 +19,7 @@ export default class Chapter6EndDialogueScene2 extends Phaser.Scene {
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'I am so happy I found you, you must go back to England,\nyou will be safe there.'\nFather: 'Martha, this war is far from over,\nI won't stop fighting'\nMartha: 'How did you end up being captured?'\nFather: 'It's a long story, but a very good one,\nit all began when I...'"),
+      description: createLabel(this, "Martha: 'I am so happy I found you,\nyou must go back to England,\nyou will be safe there.'\nFather: 'Martha, this war is far\nfrom over, I won't stop fighting'\nMartha: 'How did you end up being\ncaptured?' Father: 'It's a long story,\nbut a very good one,\nit all began when I...'"),
 
       actions: [
           createLabel(this, 'Next')

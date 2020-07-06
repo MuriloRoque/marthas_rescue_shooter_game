@@ -95,6 +95,24 @@ export default class GameScene1 extends Phaser.Scene {
     });
 
     this.time.addEvent({
+      delay: 10001,
+      callback: function() {
+        this.scene.pause();
+        this.scene.launch("Chapter1BossDialogue")
+        this.stopEnemy = true;
+        var boss = null;
+
+        var boss = new Boss1(this, 400, 80, 15);
+
+        if (boss !== null) {
+          boss.setScale(0.8);
+          this.enemies.add(boss);
+        }
+      },
+      callbackScope: this,
+    });
+
+    this.time.addEvent({
       delay: 10000,
       callback: function() {
         this.scene.pause();

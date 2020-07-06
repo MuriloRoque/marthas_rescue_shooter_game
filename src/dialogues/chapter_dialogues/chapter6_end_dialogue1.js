@@ -19,7 +19,7 @@ export default class Chapter6EndDialogueScene1 extends Phaser.Scene {
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'He's unconscious, I must find my father and leave as fast as possible.'\nFather: 'Martha, in here!'\nMartha: 'I have finally found you,\ncome on, we don't have much time!'\n** huge explosion **"),
+      description: createLabel(this, "Martha: 'He's unconscious, I must find\nmy father and leave as fast as possible.'\nFather: 'Martha, in here!'\nMartha: 'I have finally found you,\ncome on, we don't have much time!'\n** huge explosion **"),
 
       actions: [
           createLabel(this, 'Next')

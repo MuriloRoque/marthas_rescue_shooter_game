@@ -86,7 +86,7 @@ export default class GameScene2 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 6){
+        else if (number > 6 && this.stopEnemy === false){
           enemy = new Bomber(
             this,
             Phaser.Math.Between(0, this.game.config.width),

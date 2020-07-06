@@ -89,7 +89,7 @@ export default class GameScene6 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 1 && number <= 2){
+        else if (number > 1 && number <= 2 && this.stopEnemy === false){
           enemy = new Bomber(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -100,7 +100,7 @@ export default class GameScene6 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 2 && number <= 4){
+        else if (number > 2 && number <= 4 && this.stopEnemy === false){
           enemy = new Chaser(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -111,7 +111,7 @@ export default class GameScene6 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 4 && number <= 6){
+        else if (number > 4 && number <= 6 && this.stopEnemy === false){
           enemy = new AttackHel(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -122,7 +122,7 @@ export default class GameScene6 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 6 && number <= 8){
+        else if (number > 6 && number <= 8 && this.stopEnemy === false){
           enemy = new AttackAir(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -133,7 +133,7 @@ export default class GameScene6 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 8 && number <= 10){
+        else if (number > 8 && number <= 10 && this.stopEnemy === false){
           enemy = new Multirole(
             this,
             Phaser.Math.Between(0, this.game.config.width),

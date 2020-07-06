@@ -60,7 +60,7 @@ export default class Chapter4BonusScene extends Phaser.Scene {
   this.print = this.add.text(0, 0, '');
   dialog
       .on('button.click', function (button) {
-        let bonuses = {bonus1: 0, bonus2: 0, bonus3: 0, bonus4: 0}
+        let bonuses = JSON.parse(localStorage.getItem('bonuses'));
         switch(button.text){
           case "Missile + (Max 3)":
             bonuses.bonus1 += 1;

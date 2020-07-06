@@ -104,7 +104,7 @@ export default class Player extends Entity {
           missile2.setScale(0.5);
           this.setData("timerShootTick", 0);
         }
-        else{
+        else if(this.bonus1 >= 2){
           var missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
           var missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
           var missile3 = new PlayerMissile(this.scene, this.x, this.y);

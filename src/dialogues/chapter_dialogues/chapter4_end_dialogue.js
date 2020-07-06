@@ -19,7 +19,7 @@ export default class Chapter4EndDialogueScene extends Phaser.Scene {
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'What is that? A chest?'\n** opens the chest **\nMartha: 'There's a toy castle inside, very curious.'"),
+      description: createLabel(this, "Martha: 'What is that? A chest?'\n** opens the chest **\nMartha: 'There's a toy castle inside,\nvery curious.'"),
 
       actions: [
           createLabel(this, 'Next')

@@ -19,7 +19,7 @@ export default class Chapter6BossDialogueScene extends Phaser.Scene {
 
       content: createLabel(this, 'The boss appeared!'),
 
-      description: createLabel(this, "Adolf (Boss): 'I can't believe you defeated my commanders!'\nMartha: 'Release my father and give up\nright now if you want to live.'\nAdolf (Boss): 'Unfortunately for you,\nthis fight won't be as easy as before!'"),
+      description: createLabel(this, "Adolf (Boss): 'I can't believe you defeated\nmy commanders!' Martha: 'Release my father\nand give up right now if you want\nto live.' Adolf (Boss): 'Unfortunately\nfor you, this fight won't be as easy\nas the previous ones!'"),
 
       actions: [
           createLabel(this, 'Start fight!')

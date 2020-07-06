@@ -19,7 +19,7 @@ export default class Chapter5EndDialogueScene2 extends Phaser.Scene {
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'The toy castle, could it be Książ Castle?'\nNigel: 'Yes, and I heard the Germans are building\nseven massive underground bases in that location!'\nMartha: 'Wait a minute, the 'Giant'! It must be Project Riese,\nthat's where my father is! We must not waste time, let's go!'"),
+      description: createLabel(this, "Martha: 'The toy castle, could it be\nKsiąż Castle?'Nigel: 'Yes, and I\nheard the Germans are building\nseven massive underground bases\nin that location!'Martha: 'Wait\na minute, the 'Giant'! It must\nbe Project Riese, that's where my\nfather is! We must not waste time,\nlet's go!'"),
 
       actions: [
           createLabel(this, 'Next')

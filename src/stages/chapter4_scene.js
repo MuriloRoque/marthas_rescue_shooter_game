@@ -22,7 +22,7 @@ export default class GameScene4 extends Phaser.Scene {
 
   create () {
     let myself = this;
-    this.add.image(400, 300, 'swamp').setDisplaySize(800, 600);
+    this.add.image(400, 300, 'forest').setDisplaySize(800, 600);
 
     let bonuses = JSON.parse(localStorage.getItem('bonuses'));
     let score = JSON.parse(localStorage.getItem('score'));
@@ -87,7 +87,7 @@ export default class GameScene4 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 2 && number <= 4){
+        else if (number > 2 && number <= 4 && this.stopEnemy === false){
           enemy = new Bomber(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -98,7 +98,7 @@ export default class GameScene4 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 4 && number <= 7){
+        else if (number > 4 && number <= 7 && this.stopEnemy === false){
           enemy = new Chaser(
             this,
             Phaser.Math.Between(0, this.game.config.width),
@@ -109,7 +109,7 @@ export default class GameScene4 extends Phaser.Scene {
             this.enemies.add(enemy);
           }
         }
-        else if (number > 7){
+        else if (number > 7 && this.stopEnemy === false){
           enemy = new AttackHel(
             this,
             Phaser.Math.Between(0, this.game.config.width),

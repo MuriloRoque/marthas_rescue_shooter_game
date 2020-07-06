@@ -19,7 +19,7 @@ export default class Chapter5EndDialogueScene1 extends Phaser.Scene {
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'I have destroyed the last outpost and found nothing.'\nMartha: 'Wait a minute, the clues must mean something.'\nNigel: 'That's right, Martha, put them together!'\nMartha: 'The sleepless mountain, it must be the Owl Mountains!'"),
+      description: createLabel(this, "Martha: 'I have destroyed the last outpost\nand found nothing.' Martha: 'Wait a minute,\nthe clues must mean something.'\nNigel: 'That's right, Martha, put\nthem together!' Martha: 'The sleepless\nmountain, it must be the Owl Mountains!'"),
 
       actions: [
           createLabel(this, 'Next')

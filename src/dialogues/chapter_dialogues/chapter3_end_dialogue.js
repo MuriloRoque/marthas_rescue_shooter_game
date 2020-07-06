@@ -19,7 +19,7 @@ export default class Chapter3EndDialogueScene extends Phaser.Scene {
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'This is the third one and I still got nothing.\nHuh, what's that written on the wall?'\nWall: 'Your destiny is in the sleepless mountain'\nMartha: 'Hmmm'"),
+      description: createLabel(this, "Martha: 'This is the third one and\nI still got nothing.Huh, what's\nthat written on the wall?'\nWall: 'Your destiny is in the sleepless mountain'\nMartha: 'Hmmm'"),
 
       actions: [
           createLabel(this, 'Next')

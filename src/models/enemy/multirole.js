@@ -4,7 +4,7 @@ export default class Multirole extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, "multirole", "Multirole");
 
-    this.body.velocity.y = Phaser.Math.Between(20);
+    this.body.velocity.y = 20;
 
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,

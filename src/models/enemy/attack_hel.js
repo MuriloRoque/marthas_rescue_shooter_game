@@ -19,7 +19,8 @@ export default class AttackHel extends Entity {
           this.x + 25,
           this.y
         );
-        missile.setScale(0.5);
+        missile1.setScale(0.5);
+        missile2.setScale(0.5);
         this.scene.enemyMissiles.add(missile1);
         this.scene.enemyMissiles.add(missile2);
       },
