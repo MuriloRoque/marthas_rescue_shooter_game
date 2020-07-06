@@ -1,4 +1,4 @@
-import { Entity, EnemyBomb } from '../entities';
+import { Entity } from '../entities';
 
 export default class Chaser extends Entity {
   constructor(scene, x, y) {
