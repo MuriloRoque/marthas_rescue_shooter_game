@@ -1,13 +1,13 @@
-export default class Chapter5EndDialogueScene extends Phaser.Scene {
+export default class Chapter6EndDialogueScene1 extends Phaser.Scene {
   constructor () {
-    super('Chapter5EndDialogue');
+    super('Chapter6EndDialogue1');
   }
 
   preload () {
   }
 
   create () {
-    this.add.image(400, 300, 'river').setDisplaySize(800, 600);
+    this.add.image(400, 300, 'warzone').setDisplaySize(800, 600);
     var dialog = this.rexUI.add.dialog({
       x: 400,
       y: 300,
@@ -15,11 +15,11 @@ export default class Chapter5EndDialogueScene extends Phaser.Scene {
 
       background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x466D1D),
 
-      title: createLabel(this, 'Chapter 5 End').setDraggable(),
+      title: createLabel(this, 'Chapter 6 End').setDraggable(),
 
       content: createLabel(this, 'Mission Complete!'),
 
-      description: createLabel(this, "Martha: 'I have destroyed the last outpost and found nothing.'\nMartha: 'Wait a minute, the clues must mean something.'\nNigel: 'That's right, Martha, put them together!'\nMartha: 'The sleepless mountain, it must be the Owl Mountains!'\nMartha: 'The toy castle, could it be Książ Castle?'\nNigel: 'Yes, and I heard the Germans are building\nseven massive underground bases in that location!'\nMartha: 'Wait a minute, the 'Giant'! It must be Project Riese,\nthat's where my father is! We must not waste time, let's go!'"),
+      description: createLabel(this, "Martha: 'He's unconscious, I must find my father and leave as fast as possible.'\nFather: 'Martha, in here!'\nMartha: 'I have finally found you,\ncome on, we don't have much time!'\n** huge explosion **"),
 
       actions: [
           createLabel(this, 'Next')
@@ -60,7 +60,7 @@ export default class Chapter5EndDialogueScene extends Phaser.Scene {
   this.print = this.add.text(0, 0, '');
   dialog
       .on('button.click', function () {
-         this.scene.start('Chapter5Bonus');
+         this.scene.start('Chapter6EndDialogue2');
       }, this)
       .on('button.over', function (button) {
           button.getElement('background').setStrokeStyle(1, 0xffffff);

@@ -28,8 +28,10 @@ import Chapter1EndDialogueScene from './dialogues/chapter_dialogues/chapter1_end
 import Chapter2EndDialogueScene from './dialogues/chapter_dialogues/chapter2_end_dialogue';
 import Chapter3EndDialogueScene from './dialogues/chapter_dialogues/chapter3_end_dialogue';
 import Chapter4EndDialogueScene from './dialogues/chapter_dialogues/chapter4_end_dialogue';
-import Chapter5EndDialogueScene from './dialogues/chapter_dialogues/chapter5_end_dialogue';
-import Chapter6EndDialogueScene from './dialogues/chapter_dialogues/chapter6_end_dialogue';
+import Chapter5EndDialogueScene1 from './dialogues/chapter_dialogues/chapter5_end_dialogue1';
+import Chapter5EndDialogueScene2 from './dialogues/chapter_dialogues/chapter5_end_dialogue2';
+import Chapter6EndDialogueScene1 from './dialogues/chapter_dialogues/chapter6_end_dialogue1';
+import Chapter6EndDialogueScene2 from './dialogues/chapter_dialogues/chapter6_end_dialogue2';
 import Chapter1BonusScene from './bonuses/chapter1_bonus';
 import Chapter2BonusScene from './bonuses/chapter2_bonus';
 import Chapter3BonusScene from './bonuses/chapter3_bonus';
@@ -71,8 +73,10 @@ class Game extends Phaser.Game {
     this.scene.add('Chapter2EndDialogue', Chapter2EndDialogueScene);
     this.scene.add('Chapter3EndDialogue', Chapter3EndDialogueScene);
     this.scene.add('Chapter4EndDialogue', Chapter4EndDialogueScene);
-    this.scene.add('Chapter5EndDialogue', Chapter5EndDialogueScene);
-    this.scene.add('Chapter6EndDialogue', Chapter6EndDialogueScene);
+    this.scene.add('Chapter5EndDialogue1', Chapter5EndDialogueScene1);
+    this.scene.add('Chapter5EndDialogue2', Chapter5EndDialogueScene2);
+    this.scene.add('Chapter6EndDialogue1', Chapter6EndDialogueScene1);
+    this.scene.add('Chapter6EndDialogue2', Chapter6EndDialogueScene2);
     this.scene.add('Chapter1Bonus', Chapter1BonusScene);
     this.scene.add('Chapter2Bonus', Chapter2BonusScene);
     this.scene.add('Chapter3Bonus', Chapter3BonusScene);
