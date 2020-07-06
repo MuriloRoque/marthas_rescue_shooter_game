@@ -10,7 +10,26 @@ export default class Player extends Entity {
     this.bonus3 = bonus3;
     this.bonus4 = bonus4;
 
-    this.setData("speed", 200);
+    switch(this.bonus2){
+      case 0:
+        this.setData("speed", 200);
+        break;
+      case 1:
+        this.setData("speed", 240);
+        break;
+      case 2:
+        this.setData("speed", 280);
+        break;
+      case 3:
+        this.setData("speed", 320);
+        break;
+      case 4:
+        this.setData("speed", 360);
+        break;
+      case 5:
+        this.setData("speed", 400);
+        break;
+    }
 
     this.setData("isShooting", false);
     this.setData("timerShootDelay", 30);
@@ -43,25 +62,7 @@ export default class Player extends Entity {
 
   update() {
 
-    switch(this.bonus1){
-      case 1:
-        this.setData("speed", 400);
-        break;
-      case 2:
-        this.setData("speed", 280);
-        break;
-      case 3:
-        this.setData("speed", 320);
-        break;
-      case 4:
-        this.setData("speed", 360);
-        break;
-      case 5:
-        this.setData("speed", 400);
-        break;
-    }
-
-    this.body.setVelocity()
+    this.body.setVelocity(0, 0)
     this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
     this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
 

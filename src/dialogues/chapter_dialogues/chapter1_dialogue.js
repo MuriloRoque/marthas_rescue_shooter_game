@@ -1,4 +1,4 @@
-export default class Chaper1DialogueScene extends Phaser.Scene {
+export default class Chapter1DialogueScene extends Phaser.Scene {
   constructor () {
     super('Chapter1Dialogue');
   }

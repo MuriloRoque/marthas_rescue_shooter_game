@@ -1,4 +1,4 @@
-export default class Chaper1BonusScene extends Phaser.Scene {
+export default class Chapter1BonusScene extends Phaser.Scene {
   constructor () {
     super('Chapter1Bonus');
   }
@@ -61,22 +61,22 @@ export default class Chaper1BonusScene extends Phaser.Scene {
   this.print = this.add.text(0, 0, '');
   dialog
       .on('button.click', function (button) {
-        let player = JSON.parse(localStorage.getItem('player'));
+        let bonuses = {bonus1: 0, bonus2: 0, bonus3: 0, bonus4: 0}
         switch(button.text){
           case "Missile + (Max 3)":
-            player.bonus1 += 1;
+            bonuses.bonus1 += 1;
             break;
           case "Move Speed":
-            player.bonus2 += 1;
+            bonuses.bonus2 += 1;
             break;
           case "Attack Speed":
-            player.bonus3 += 1;
+            bonuses.bonus3 += 1;
             break;
           case "Shield":
-            player.bonus4 += 1;
+            bonuses.bonus4 += 1;
             break;
         }
-        localStorage.setItem("player", JSON.stringify(player));
+        localStorage.setItem("bonuses", JSON.stringify(bonuses));
         this.scene.start('Game2');
       }, this)
       .on('button.over', function (button) {

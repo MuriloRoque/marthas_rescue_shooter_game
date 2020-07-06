@@ -6,8 +6,6 @@ import Boss1 from '../models/bosses/chapter1_boss';
 let life1;
 let life2;
 let life3;
-let scoreText;
-let score = 0;
 
 export default class GameScene1 extends Phaser.Scene {
   constructor () {
@@ -29,8 +27,6 @@ export default class GameScene1 extends Phaser.Scene {
   create () {
     let myself = this;
     this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
-
-    scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
     life1 = this.add.image(750, 50, 'playerPlane').setDisplaySize(50, 50);
     life2 = this.add.image(700, 50, 'playerPlane').setDisplaySize(50, 50);
@@ -62,6 +58,8 @@ export default class GameScene1 extends Phaser.Scene {
       3, 0
     );
     this.player.setScale(0.3);
+
+    let scoreText = this.add.text(16, 16, 'Score: ' + this.player.score, { fontSize: '32px', fill: '#000' });
 
     this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
@@ -122,11 +120,9 @@ export default class GameScene1 extends Phaser.Scene {
           if(enemy.hp === 0){
             enemy.explode(true);
             playerMissile.destroy();
-            score += 100;
-            scoreText.setText('Score: ' + score);
-            localStorage.setItem('score', JSON.stringify(score));
-            console.log(myself.player)
-            localStorage.setItem('player', JSON.stringify(myself.player));
+            myself.player.score += 100;
+            scoreText.setText('Score: ' + myself.player.score);
+            localStorage.setItem('score', JSON.stringify(myself.player.score));
             myself.scene.start("Chapter1EndDialogue");
           }
         }
@@ -136,8 +132,8 @@ export default class GameScene1 extends Phaser.Scene {
           }
           enemy.explode(true);
           playerMissile.destroy();
-          score += 10;
-          scoreText.setText('Score: ' + score);
+          myself.player.score += 10;
+          scoreText.setText('Score: ' + myself.player.score);
         }
       }
     });

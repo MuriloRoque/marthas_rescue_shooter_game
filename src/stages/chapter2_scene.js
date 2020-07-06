@@ -7,7 +7,7 @@ let life1;
 let life2;
 let life3;
 let scoreText;
-let score = 0;
+let score = JSON.parse(localStorage.getItem('score'));
 
 export default class GameScene2 extends Phaser.Scene {
   constructor () {
@@ -54,14 +54,14 @@ export default class GameScene2 extends Phaser.Scene {
       this.sys.game.globals.bgMusic.play();
     }
 
-    let previous_player = JSON.parse(localStorage.getItem('player'));
+    let bonuses = JSON.parse(localStorage.getItem('bonuses'));
 
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
       "playerPlane",
-      3, 0, previous_player.bonus1, previous_player.bonus2, previous_player.bonus3, previous_player.bonus4 
+      3, 0, bonuses.bonus1, bonuses.bonus2, bonuses.bonus3, bonuses.bonus4 
     );
     this.player.setScale(0.3);
 
@@ -102,7 +102,7 @@ export default class GameScene2 extends Phaser.Scene {
       delay: 10000,
       callback: function() {
         this.scene.pause();
-        this.scene.launch("Chapter1BossDialogue")
+        this.scene.launch("Chapter2BossDialogue")
         this.stopEnemy = true;
         var boss = null;
 
