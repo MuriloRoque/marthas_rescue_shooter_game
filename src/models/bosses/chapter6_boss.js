@@ -1,34 +1,37 @@
-import { Entity, ChasingEnemyMissile, EnemyBomb } from '../entities';
+import Phaser from 'phaser';
+import Entity from '../entities';
+import ChasingEnemyMissile from '../attacks/chasing_enemy_missile';
+import EnemyBomb from '../attacks/enemy_bomb';
 
 export default class Boss6 extends Entity {
   constructor(scene, x, y, hp) {
-    super(scene, x, y, "boss", "Boss6");
+    super(scene, x, y, 'boss', 'Boss6');
     this.hp = hp;
     this.body.collideWorldBounds = true;
 
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
-      callback: function() {
+      callback() {
         this.body.velocity.x = Phaser.Math.Between(-200, 200);
-        var missile1 = new ChasingEnemyMissile(
+        const missile1 = new ChasingEnemyMissile(
           this.scene,
           this.x,
-          this.y
+          this.y,
         );
-        var bomb = new EnemyBomb(
+        const bomb = new EnemyBomb(
           this.scene,
           this.x,
-          this.y
+          this.y,
         );
-        var missile2 = new ChasingEnemyMissile(
+        const missile2 = new ChasingEnemyMissile(
           this.scene,
           this.x - 70,
-          this.y
+          this.y,
         );
-        var missile3 = new ChasingEnemyMissile(
+        const missile3 = new ChasingEnemyMissile(
           this.scene,
           this.x + 70,
-          this.y
+          this.y,
         );
         this.scene.enemyMissiles.add(missile1);
         this.scene.enemyMissiles.add(missile2);
@@ -36,7 +39,7 @@ export default class Boss6 extends Entity {
         this.scene.enemyMissiles.add(bomb);
       },
       callbackScope: this,
-      loop: true
+      loop: true,
     });
   }
 

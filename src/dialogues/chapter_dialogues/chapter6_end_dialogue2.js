@@ -1,14 +1,14 @@
+import Phaser from 'phaser';
+import createLabel from '../create_label';
+
 export default class Chapter6EndDialogueScene2 extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('Chapter6EndDialogue2');
   }
 
-  preload () {
-  }
-
-  create () {
+  create() {
     this.add.image(400, 300, 'warzone').setDisplaySize(800, 600);
-    var dialog = this.rexUI.add.dialog({
+    const dialog = this.rexUI.add.dialog({
       x: 400,
       y: 300,
       width: 500,
@@ -22,72 +22,51 @@ export default class Chapter6EndDialogueScene2 extends Phaser.Scene {
       description: createLabel(this, "Martha: 'I am so happy I found you,\nyou must go back to England,\nyou will be safe there.'\nFather: 'Martha, this war is far\nfrom over, I won't stop fighting'\nMartha: 'How did you end up being\ncaptured?' Father: 'It's a long story,\nbut a very good one,\nit all began when I...'"),
 
       actions: [
-          createLabel(this, 'Next')
+        createLabel(this, 'Next'),
       ],
 
       space: {
-          left: 20,
-          right: 20,
-          top: -20,
-          bottom: -20,
-          title: 25,
-          content: 25,
-          description: 25,
-          choices: 25,
-          leftToolbarItem: 5,
-          toolbarItem: 5,
-          choice: 15,
-          action: 15,
+        left: 20,
+        right: 20,
+        top: -20,
+        bottom: -20,
+        title: 25,
+        content: 25,
+        description: 25,
+        choices: 25,
+        leftToolbarItem: 5,
+        toolbarItem: 5,
+        choice: 15,
+        action: 15,
       },
 
       expand: {
-          title: false,
+        title: false,
       },
 
       align: {
-          title: 'center',
-          actions: 'right',
+        title: 'center',
+        actions: 'right',
       },
 
       click: {
-          mode: 'release'
-      }
-  })
+        mode: 'release',
+      },
+    })
       .setDraggable('background')
       .layout()
-      .popUp(1000)
+      .popUp(1000);
 
-  this.print = this.add.text(0, 0, '');
-  dialog
-      .on('button.click', function () {
-         this.scene.start('EndGame');
+    this.print = this.add.text(0, 0, '');
+    dialog
+      .on('button.click', function buttonClick() {
+        this.scene.start('EndGame');
       }, this)
-      .on('button.over', function (button) {
-          button.getElement('background').setStrokeStyle(1, 0xffffff);
+      .on('button.over', (button) => {
+        button.getElement('background').setStrokeStyle(1, 0xffffff);
       })
-      .on('button.out', function (button) {
-          button.getElement('background').setStrokeStyle();
+      .on('button.out', (button) => {
+        button.getElement('background').setStrokeStyle();
       });
   }
-  
-}
-
-var createLabel = function (scene, text) {
-  return scene.rexUI.add.label({
-      width: 40,
-      height: 40,
-
-      background: scene.rexUI.add.roundRectangle(0, 0, 0, 0, 20, 0x607D3B),
-
-      text: scene.add.text(0, 0, text, {
-          fontSize: '24px'
-      }),
-
-      space: {
-          left: 10,
-          right: 10,
-          top: 10,
-          bottom: 10
-      }
-  });
 }

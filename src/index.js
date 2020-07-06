@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 import config from './config/config';
 import BootScene from './scenes/boot_scene';
 import PreloaderScene from './scenes/preloader_scene';
@@ -39,10 +39,11 @@ import Chapter3BonusScene from './bonuses/chapter3_bonus';
 import Chapter4BonusScene from './bonuses/chapter4_bonus';
 import Chapter5BonusScene from './bonuses/chapter5_bonus';
 import Music from './models/music';
+
 localStorage.clear();
 
 class Game extends Phaser.Game {
-  constructor () {
+  constructor() {
     super(config);
     const music = new Music();
     this.globals = { music, bgMusic: null };
@@ -88,4 +89,4 @@ class Game extends Phaser.Game {
   }
 }
 
-const game = new Game();
+const game = new Game(); /* eslint-disable-line */

@@ -1,28 +1,31 @@
-import { Entity, EnemyMissile, DiagonalRightMissile, DiagonalLeftMissile } from '../entities';
+import Entity from '../entities';
+import EnemyMissile from '../attacks/enemy_missile';
+import DiagonalRightMissile from '../attacks/diagonal_right_missile';
+import DiagonalLeftMissile from '../attacks/diagonal_left_missile';
 
 export default class Multirole extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, "multirole", "Multirole");
+    super(scene, x, y, 'multirole', 'Multirole');
 
     this.body.velocity.y = 20;
 
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
-      callback: function() {
-        var missile = new EnemyMissile(
+      callback() {
+        const missile = new EnemyMissile(
           this.scene,
           this.x,
-          this.y
+          this.y,
         );
-        var diagonalRightMissile = new DiagonalRightMissile(
+        const diagonalRightMissile = new DiagonalRightMissile(
           this.scene,
           this.x,
-          this.y
+          this.y,
         );
-        var diagonalLeftMissile = new DiagonalLeftMissile(
+        const diagonalLeftMissile = new DiagonalLeftMissile(
           this.scene,
           this.x,
-          this.y
+          this.y,
         );
         missile.setScale(0.5);
         diagonalRightMissile.setScale(0.5);
@@ -32,7 +35,7 @@ export default class Multirole extends Entity {
         this.scene.enemyMissiles.add(diagonalLeftMissile);
       },
       callbackScope: this,
-      loop: true
+      loop: true,
     });
   }
 

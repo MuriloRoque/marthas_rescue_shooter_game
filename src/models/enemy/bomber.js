@@ -1,24 +1,26 @@
-import { Entity, EnemyBomb } from '../entities';
+import Phaser from 'phaser';
+import Entity from '../entities';
+import EnemyBomb from '../attacks/enemy_bomb';
 
 export default class Bomber extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, "bomber", "Bomber");
+    super(scene, x, y, 'bomber', 'Bomber');
 
     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
-      callback: function() {
-        var missile = new EnemyBomb(
+      callback() {
+        const missile = new EnemyBomb(
           this.scene,
           this.x,
-          this.y
+          this.y,
         );
         missile.setScale(1.5);
         this.scene.enemyMissiles.add(missile);
       },
       callbackScope: this,
-      loop: true
+      loop: true,
     });
   }
 

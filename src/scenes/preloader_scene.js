@@ -1,75 +1,75 @@
-import Phaser from "phaser";
+import Phaser from 'phaser';
 
 export default class PreloaderScene extends Phaser.Scene {
-  constructor () {
+  constructor() {
     super('Preloader');
   }
 
-  init () {
+  init() {
     this.readyCount = 0;
   }
 
-  preload () {
+  preload() {
     this.add.image(400, 200, 'murilo');
-    let progressBar = this.add.graphics();
-    let progressBox = this.add.graphics();
+    const progressBar = this.add.graphics();
+    const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
     progressBox.fillRect(240, 270, 320, 50);
 
-    let width = this.cameras.main.width;
-    let height = this.cameras.main.height;
-    let loadingText = this.make.text({
+    const { width } = this.cameras.main;
+    const { height } = this.cameras.main;
+    const loadingText = this.make.text({
       x: width / 2,
       y: height / 2 - 50,
       text: 'Loading...',
       style: {
         font: '20px monospace',
-        fill: '#FF0000'
-      }
+        fill: '#FF0000',
+      },
     });
     loadingText.setOrigin(0.5, 0.5);
 
-    var percentText = this.make.text({
+    const percentText = this.make.text({
       x: width / 2,
       y: height / 2 - 5,
       text: '0%',
       style: {
         font: '18px monospace',
-        fill: '#000000'
-      }
+        fill: '#000000',
+      },
     });
     percentText.setOrigin(0.5, 0.5);
 
-    var assetText = this.make.text({
+    const assetText = this.make.text({
       x: width / 2,
       y: height / 2 + 50,
       text: '',
       style: {
         font: '18px monospace',
-        fill: '#ffffff'
-      }
+        fill: '#ffffff',
+      },
     });
     assetText.setOrigin(0.5, 0.5);
 
-    this.load.on('progress', function (value) {
-      percentText.setText(parseInt(value * 100) + '%');
+    this.load.on('progress', (value) => {
+      percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    this.load.on('fileprogress', function (file) {
-      assetText.setText('Loading asset: ' + file.key);
+    this.load.on('fileprogress', (file) => {
+      assetText.setText(`Loading asset: ${file.key}`);
     });
 
-    this.load.on('complete', function () {
+    this.load.on('complete', () => {
       progressBar.destroy();
       progressBox.destroy();
       loadingText.destroy();
       percentText.destroy();
       assetText.destroy();
       this.ready();
-    }.bind(this));
+    });
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
@@ -89,11 +89,11 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('main_menu_music', ['src/assets/audio/main_menu.mp3']);
   }
 
-  ready () {
+  ready() {
     this.scene.start('Title');
-    this.readyCount++;
+    this.readyCount += 1;
     if (this.readyCount === 2) {
       this.scene.start('Title');
     }
   }
-};
+}
