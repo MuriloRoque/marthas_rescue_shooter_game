@@ -4,7 +4,7 @@ import Fighter from '../models/enemy/fighter';
 import Bomber from '../models/enemy/bomber';
 import Chaser from '../models/enemy/chaser';
 import AttackHel from '../models/enemy/attack_hel';
-import Boss3 from '../models/bosses/chapter3_boss';
+import Boss4 from '../models/bosses/chapter4_boss';
 
 let life1;
 let life2;
