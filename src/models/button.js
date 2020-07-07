@@ -7,7 +7,7 @@ export default class Button extends Phaser.GameObjects.Container {
     this.x = x;
     this.y = y;
 
-    this.button = this.scene.add.sprite(0, 0, key1, key2).setInteractive();
+    this.button = this.scene.add.image(0, 0, key1).setInteractive();
 
     this.add(this.button);
 
