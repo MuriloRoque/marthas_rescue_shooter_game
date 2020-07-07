@@ -1,30 +1,28 @@
 import Phaser from 'phaser';
-import createLabel from '../create_label';
+import createLabel from '../dialogues/create_label';
 
-export default class Chapter3DialogueScene extends Phaser.Scene {
-  constructor() {
-    super('Chapter3Dialogue');
+export default class BonusDialogue extends Phaser.Scene {
+  constructor(scene, key, content, next_dialogue) {
+    super(scene);
+    this.key = key;
+    this.content = content;
+    this.next_dialogue = next_dialogue;
   }
 
   create() {
-    this.add.image(400, 300, 'swamp').setDisplaySize(800, 600);
+    this.add.image(400, 300, this.key).setDisplaySize(800, 600);
     const dialog = this.rexUI.add.dialog({
       x: 400,
       y: 300,
       width: 500,
-
       background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x466D1D),
-
-      title: createLabel(this, 'Chapter 3').setDraggable(),
-
-      content: createLabel(this, 'Martha has arrived at the 3rd command outpost.'),
-
-      description: createLabel(this, "Martha: 'It's only the beginning, let's move!'"),
-
+      title: createLabel(this, 'BONUS').setDraggable(),
+      content: createLabel(this, this.content),
       actions: [
-        createLabel(this, 'Next'),
+        createLabel(this, 'Missile + (Max 3)'),
+        createLabel(this, 'Move Speed'),
+        createLabel(this, 'Attack Speed'),
       ],
-
       space: {
         left: 20,
         right: 20,
@@ -59,8 +57,17 @@ export default class Chapter3DialogueScene extends Phaser.Scene {
 
     this.print = this.add.text(0, 0, '');
     dialog
-      .on('button.click', function buttonClick() {
-        this.scene.start('Game3');
+      .on('button.click', function buttonClick(button) {
+        const bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
+        if (button.text === 'Missile + (Max 3)') {
+          bonuses.bonus1 += 1;
+        } else if (button.text === 'Move Speed') {
+          bonuses.bonus2 += 1;
+        } else {
+          bonuses.bonus3 += 1;
+        }
+        localStorage.setItem('bonuses', JSON.stringify(bonuses));
+        this.scene.start(this.next_dialogue);
       }, this)
       .on('button.over', (button) => {
         button.getElement('background').setStrokeStyle(1, 0xffffff);

@@ -2,11 +2,13 @@ import Phaser from 'phaser';
 import createLabel from '../dialogues/create_label';
 
 export default class Dialogue extends Phaser.Scene {
-  constructor(scene, key, content, next_dialogue) {
+  constructor(scene, key, title, content, description, next_scene) {
     super(scene);
     this.key = key;
+    this.title = title;
     this.content = content;
-    this.next_dialogue = next_dialogue;
+    this.description = description;
+    this.next_scene = next_scene;
   }
 
   create() {
@@ -16,12 +18,11 @@ export default class Dialogue extends Phaser.Scene {
       y: 300,
       width: 500,
       background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x466D1D),
-      title: createLabel(this, 'BONUS').setDraggable(),
+      title: createLabel(this, this.title).setDraggable(),
       content: createLabel(this, this.content),
+      description: createLabel(this, this.description),
       actions: [
-        createLabel(this, 'Missile + (Max 3)'),
-        createLabel(this, 'Move Speed'),
-        createLabel(this, 'Attack Speed'),
+        createLabel(this, 'Next'),
       ],
       space: {
         left: 20,
@@ -58,16 +59,7 @@ export default class Dialogue extends Phaser.Scene {
     this.print = this.add.text(0, 0, '');
     dialog
       .on('button.click', function buttonClick(button) {
-        const bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
-        if (button.text === 'Missile + (Max 3)') {
-          bonuses.bonus1 += 1;
-        } else if (button.text === 'Move Speed') {
-          bonuses.bonus2 += 1;
-        } else {
-          bonuses.bonus3 += 1;
-        }
-        localStorage.setItem('bonuses', JSON.stringify(bonuses));
-        this.scene.start(this.next_dialogue);
+        this.scene.start(this.next_scene);
       }, this)
       .on('button.over', (button) => {
         button.getElement('background').setStrokeStyle(1, 0xffffff);

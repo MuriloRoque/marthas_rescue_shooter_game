@@ -16,12 +16,6 @@ import GameScene3 from './stages/chapter3_scene';
 import GameScene4 from './stages/chapter4_scene';
 import GameScene5 from './stages/chapter5_scene';
 import GameScene6 from './stages/chapter6_scene';
-import Chapter1DialogueScene from './dialogues/chapter_dialogues/chapter1_dialogue';
-import Chapter2DialogueScene from './dialogues/chapter_dialogues/chapter2_dialogue';
-import Chapter3DialogueScene from './dialogues/chapter_dialogues/chapter3_dialogue';
-import Chapter4DialogueScene from './dialogues/chapter_dialogues/chapter4_dialogue';
-import Chapter5DialogueScene from './dialogues/chapter_dialogues/chapter5_dialogue';
-import Chapter6DialogueScene from './dialogues/chapter_dialogues/chapter6_dialogue';
 import Chapter1BossDialogueScene from './dialogues/boss_dialogues/chapter1_boss_dialogue';
 import Chapter2BossDialogueScene from './dialogues/boss_dialogues/chapter2_boss_dialogue';
 import Chapter3BossDialogueScene from './dialogues/boss_dialogues/chapter3_boss_dialogue';
@@ -36,6 +30,7 @@ import Chapter5EndDialogueScene1 from './dialogues/chapter_dialogues/chapter5_en
 import Chapter5EndDialogueScene2 from './dialogues/chapter_dialogues/chapter5_end_dialogue2';
 import Chapter6EndDialogueScene1 from './dialogues/chapter_dialogues/chapter6_end_dialogue1';
 import Chapter6EndDialogueScene2 from './dialogues/chapter_dialogues/chapter6_end_dialogue2';
+import BonusDialogue from './scenes/bonus_dialogues';
 import Dialogue from './scenes/dialogues';
 import Music from './models/music';
 
@@ -62,12 +57,12 @@ class Game extends Phaser.Game {
     this.scene.add('Game4', GameScene4);
     this.scene.add('Game5', GameScene5);
     this.scene.add('Game6', GameScene6);
-    this.scene.add('Chapter1Dialogue', Chapter1DialogueScene);
-    this.scene.add('Chapter2Dialogue', Chapter2DialogueScene);
-    this.scene.add('Chapter3Dialogue', Chapter3DialogueScene);
-    this.scene.add('Chapter4Dialogue', Chapter4DialogueScene);
-    this.scene.add('Chapter5Dialogue', Chapter5DialogueScene);
-    this.scene.add('Chapter6Dialogue', Chapter6DialogueScene);
+    this.scene.add('Chapter1Dialogue', new Dialogue('Chapter1Dialogue', 'desert', 'Chapter 1', 'Martha has arrived at the 1st command outpost.', 'Martha: "This is it, the beginning of my mission,\n\nI will never give up, I need to save him!"', 'Game1'));
+    this.scene.add('Chapter2Dialogue', new Dialogue('Chapter2Dialogue', 'oasis', 'Chapter 2', "Martha: 'Let's keep on moving, hang in there, dad!", 'Game2'));
+    this.scene.add('Chapter3Dialogue', new Dialogue('Chapter3Dialogue', 'swamp', 'Chapter 3', "Martha: 'It's only the beginning, let's move!'", 'Game3'));
+    this.scene.add('Chapter4Dialogue', new Dialogue('Chapter4Dialogue', 'forest', 'Chapter 4', "Martha: 'Almost there, I must not fail!'", 'Game4'));
+    this.scene.add('Chapter5Dialogue', new Dialogue('Chapter5Dialogue', 'river', 'Chapter 5', "Martha: 'This is the last command post,\nthis must contain the final piece of the puzzle!'", 'Game5'));
+    this.scene.add('Chapter6Dialogue', new Dialogue('Chapter6Dialogue', 'warzone', 'Chapter 6', "Martha: 'Dad, I'm coming, hang in there!'", 'Game6'));
     this.scene.add('Chapter1BossDialogue', Chapter1BossDialogueScene);
     this.scene.add('Chapter2BossDialogue', Chapter2BossDialogueScene);
     this.scene.add('Chapter3BossDialogue', Chapter3BossDialogueScene);
@@ -82,11 +77,11 @@ class Game extends Phaser.Game {
     this.scene.add('Chapter5EndDialogue2', Chapter5EndDialogueScene2);
     this.scene.add('Chapter6EndDialogue1', Chapter6EndDialogueScene1);
     this.scene.add('Chapter6EndDialogue2', Chapter6EndDialogueScene2);
-    this.scene.add('Chapter1Bonus', new Dialogue('Chapter1Bonus', 'desert', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter2Dialogue'));
-    this.scene.add('Chapter2Bonus', new Dialogue('Chapter2Bonus', 'oasis', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter3Dialogue'));
-    this.scene.add('Chapter3Bonus', new Dialogue('Chapter3Bonus', 'swamp', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter4Dialogue'));
-    this.scene.add('Chapter4Bonus', new Dialogue('Chapter4Bonus', 'forest', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter5Dialogue'));
-    this.scene.add('Chapter5Bonus', new Dialogue('Chapter5Bonus', 'river', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter6Dialogue'));
+    this.scene.add('Chapter1Bonus', new BonusDialogue('Chapter1Bonus', 'desert', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter2Dialogue'));
+    this.scene.add('Chapter2Bonus', new BonusDialogue('Chapter2Bonus', 'oasis', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter3Dialogue'));
+    this.scene.add('Chapter3Bonus', new BonusDialogue('Chapter3Bonus', 'swamp', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter4Dialogue'));
+    this.scene.add('Chapter4Bonus', new BonusDialogue('Chapter4Bonus', 'forest', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter5Dialogue'));
+    this.scene.add('Chapter5Bonus', new BonusDialogue('Chapter5Bonus', 'river', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter6Dialogue'));
     this.scene.start('Boot');
   }
 }
