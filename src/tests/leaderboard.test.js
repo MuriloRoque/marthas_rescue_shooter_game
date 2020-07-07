@@ -13,28 +13,24 @@ describe('The scores and usernames should be written and read from the API', () 
   });
   test('The object should contain the created user', () => {
     getScores().then(data => {
-      expect(data).toEqual(          // 1
-        expect.arrayContaining([      // 2
-          expect.objectContaining({   // 3
-            user: 'Murilo'               // 4
-          })
-        ])
-      )
+      expect(data).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            user: 'Murilo',
+          }),
+        ]),
+      );
     });
   });
   test('The object should contain the created score', () => {
     getScores().then(data => {
-      test('The object should contain an user', () => {
-        getScores().then(data => {
-          expect(data).toEqual(          // 1
-            expect.arrayContaining([      // 2
-              expect.objectContaining({   // 3
-                score: '1000'               // 4
-              })
-            ])
-          )
-        });
-      });
+      expect(data).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            score: '1000',
+          }),
+        ]),
+      );
     });
   });
 });

@@ -54,8 +54,8 @@ export default class GameScene6 extends Phaser.Scene {
     }
 
     this.sfx = {
-      explosion: this.sound.add("explosionSound", { volume: 0.1 }),
-      missile: this.sound.add("shootSound", { volume: 0.1 })
+      explosion: this.sound.add('explosionSound', { volume: 0.1 }),
+      missile: this.sound.add('shootSound', { volume: 0.1 }),
     };
 
     this.player = new Player(

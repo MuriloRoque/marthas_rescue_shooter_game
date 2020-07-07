@@ -30,7 +30,6 @@
     "file-loader": "^6.0.0",
     "jest": "^26.1.0",
     "jest-canvas-mock": "^2.2.0",
-    "node-fetch": "^2.6.0",
     "raw-loader": "^4.0.1",
     "regenerator": "^0.14.5",
     "webpack-cli": "^3.3.12",
@@ -39,6 +38,7 @@
   "dependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "node-fetch": "^2.6.0",
     "phaser": "^3.23.0",
     "phaser3-rex-plugins": "^1.1.19",
     "regenerator-runtime": "^0.13.5",
