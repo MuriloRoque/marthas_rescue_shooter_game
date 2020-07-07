@@ -44,7 +44,7 @@ export default class EndGameScene extends Phaser.Scene {
       duration: 14000,
       delay: 1000,
       onComplete: function startTitle() {
-        this.scene.start('Title');
+        this.scene.start('PlayerInput');
       }.bind(this),
     });
   }
