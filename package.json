@@ -4,6 +4,8 @@
   "description": "This is a shooter game featuring Martha, a battle aircraft pilot who's trying to rescue her father.",
   "main": "src/index.js",
   "scripts": {
+    "test": "jest",
+    "watch": "jest --watch",
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
@@ -21,8 +23,10 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
     "file-loader": "^6.0.0",
+    "jest": "^26.1.0",
     "raw-loader": "^4.0.1",
     "regenerator": "^0.14.5",
     "webpack-cli": "^3.3.12",
@@ -37,5 +41,24 @@
     "terser-webpack-plugin": "^3.0.6",
     "webpack": "^4.43.0",
     "webpack-merge": "^4.2.2"
+  },
+  "jest": {
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js",
+      "^config$": "<rootDir>/configs/app-config.js"
+    }
   }
 }
