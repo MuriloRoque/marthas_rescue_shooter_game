@@ -21,7 +21,7 @@ export default class LeaderboardScene extends Phaser.Scene {
       scores.sort((a, b) => b.score - a.score);
       this.add.bitmapText(100, 20, 'arcade', 'RANK  SCORE   NAME').setTint(0xff00ff);
       for(let i = 0; i <= 4; i += 1){
-        this.add.bitmapText(100, 100 * (i + 1), 'arcade', ` ${i + 1}     ${scores[i].score}   ${scores[i].user}`).setTint(0xff0000);
+        this.add.bitmapText(100, 90 * (i + 1), 'arcade', ` ${i + 1}     ${scores[i].score}   ${scores[i].user}`).setTint(0xff0000);
       }
     });
   }

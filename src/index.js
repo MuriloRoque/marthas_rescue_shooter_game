@@ -9,6 +9,7 @@ import GameOverScene from './scenes/game_over_scene';
 import EndGameScene from './scenes/end_game_scene';
 import PlayerInputScene from './scenes/player_input';
 import LeaderboardScene from './scenes/leaderboard_scene';
+import IntroScene from './scenes/intro_scene';
 import GameScene1 from './stages/chapter1_scene';
 import GameScene2 from './stages/chapter2_scene';
 import GameScene3 from './stages/chapter3_scene';
@@ -58,6 +59,7 @@ class Game extends Phaser.Game {
     this.scene.add('EndGame', EndGameScene);
     this.scene.add('PlayerInput', PlayerInputScene);
     this.scene.add('Leaderboard', LeaderboardScene);
+    this.scene.add('Intro', IntroScene);
     this.scene.add('Game1', GameScene1);
     this.scene.add('Game2', GameScene2);
     this.scene.add('Game3', GameScene3);
