@@ -1,14 +1,21 @@
 import Phaser from 'phaser';
-import createLabel from '../dialogues/create_label';
+import createLabel from '../create_label';
 
 export default class Dialogue extends Phaser.Scene {
-  constructor(scene, key, title, content, description, next_scene) {
+  constructor(scene, key, title, content, description, next_scene, boss = false) {
     super(scene);
     this.key = key;
     this.title = title;
     this.content = content;
     this.description = description;
     this.next_scene = next_scene;
+    this.boss = boss;
+    if(this.boss){
+      this.label = 'Start Fight!';
+    }
+    else{
+      this.label = 'Next';
+    }
   }
 
   create() {
@@ -22,7 +29,7 @@ export default class Dialogue extends Phaser.Scene {
       content: createLabel(this, this.content),
       description: createLabel(this, this.description),
       actions: [
-        createLabel(this, 'Next'),
+        createLabel(this, this.label),
       ],
       space: {
         left: 20,
@@ -59,7 +66,13 @@ export default class Dialogue extends Phaser.Scene {
     this.print = this.add.text(0, 0, '');
     dialog
       .on('button.click', function buttonClick(button) {
-        this.scene.start(this.next_scene);
+        if(this.boss){
+          this.scene.stop();
+          this.scene.resume(this.next_scene);
+        }
+        else{
+          this.scene.start(this.next_scene);
+        }
       }, this)
       .on('button.over', (button) => {
         button.getElement('background').setStrokeStyle(1, 0xffffff);

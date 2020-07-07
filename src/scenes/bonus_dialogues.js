@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import createLabel from '../dialogues/create_label';
+import createLabel from '../create_label';
 
 export default class BonusDialogue extends Phaser.Scene {
   constructor(scene, key, content, next_dialogue) {
