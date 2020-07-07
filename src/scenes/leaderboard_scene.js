@@ -7,10 +7,6 @@ export default class LeaderboardScene extends Phaser.Scene {
     super('Leaderboard');
   }
 
-  preload() {
-    this.load.bitmapFont('arcade', 'src/assets/images/arcade.png', 'src/assets/text/arcade.xml');
-  }
-
   create() {
     this.cameras.main.setBackgroundColor('#000111');
     const loading = this.add.bitmapText(250, 250, 'arcade', 'Loading...').setTint(0xff00ff);

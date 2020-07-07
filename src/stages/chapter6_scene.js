@@ -17,11 +17,6 @@ export default class GameScene6 extends Phaser.Scene {
     super('Game6');
   }
 
-  preload() {
-    this.load.image('multirole', 'src/assets/images/multirole.png');
-    this.load.audio('warzoneMusic', ['src/assets/audio/warzone.mp3']);
-  }
-
   create() {
     const myself = this;
     this.add.image(400, 300, 'warzone').setDisplaySize(800, 600);

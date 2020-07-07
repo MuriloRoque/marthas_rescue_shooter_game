@@ -6,12 +6,6 @@ export default class CreditsScene extends Phaser.Scene {
     super('Credits');
   }
 
-  preload() {
-    this.load.image('murilo', 'src/assets/images/murilo.png');
-    this.load.image('microverse', 'src/assets/images/microverse.png');
-    this.load.image('openart', 'src/assets/images/openart.webp');
-  }
-
   create() {
     this.cameras.main.setBackgroundColor('#000111');
     this.creditsText = this.add.text(0, 0, 'Credits', { fontSize: '32px', fill: '#fff' });

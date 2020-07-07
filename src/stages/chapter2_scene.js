@@ -13,12 +13,6 @@ export default class GameScene2 extends Phaser.Scene {
     super('Game2');
   }
 
-  preload() {
-    this.load.image('bomb', 'src/assets/images/bomb.png');
-    this.load.image('bomber', 'src/assets/images/bomber.png');
-    this.load.audio('oasisMusic', ['src/assets/audio/oasis.ogg']);
-  }
-
   create() {
     const myself = this;
     this.add.image(400, 300, 'oasis').setDisplaySize(800, 600);

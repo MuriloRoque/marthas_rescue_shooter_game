@@ -5,11 +5,7 @@ export default class Chapter5DialogueScene extends Phaser.Scene {
   constructor() {
     super('Chapter5Dialogue');
   }
-
-  preload() {
-    this.load.image('river', 'src/assets/images/river.png');
-  }
-
+  
   create() {
     this.add.image(400, 300, 'river').setDisplaySize(800, 600);
     const dialog = this.rexUI.add.dialog({

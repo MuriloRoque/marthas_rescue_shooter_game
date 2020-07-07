@@ -14,11 +14,6 @@ export default class GameScene3 extends Phaser.Scene {
     super('Game3');
   }
 
-  preload() {
-    this.load.image('chaser', 'src/assets/images/chaser.png');
-    this.load.audio('swampMusic', ['src/assets/audio/swamp.mp3']);
-  }
-
   create() {
     const myself = this;
     this.add.image(400, 300, 'swamp').setDisplaySize(800, 600);

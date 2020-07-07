@@ -6,10 +6,6 @@ export default class PlayerInputScene extends Phaser.Scene {
     super('PlayerInput');
   }
 
-  preload() {
-    this.load.html('name_form', 'src/assets/text/name_form.html');
-  }
-
   create() {
     const text = this.add.text(10, 10, 'Enter your name:', { color: 'white', fontFamily: 'Arial', fontSize: '24px ' });
     const element = this.add.dom(400, 600).createFromCache('name_form');

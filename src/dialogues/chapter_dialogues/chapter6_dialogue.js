@@ -5,11 +5,7 @@ export default class Chapter6DialogueScene extends Phaser.Scene {
   constructor() {
     super('Chapter6Dialogue');
   }
-
-  preload() {
-    this.load.image('warzone', 'src/assets/images/warzone.png');
-  }
-
+  
   create() {
     this.add.image(400, 300, 'warzone').setDisplaySize(800, 600);
     const dialog = this.rexUI.add.dialog({

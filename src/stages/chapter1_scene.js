@@ -12,20 +12,6 @@ export default class GameScene1 extends Phaser.Scene {
     super('Game1');
   }
 
-  preload() {
-    this.load.spritesheet('explosion', 'src/assets/images/explosion.png', {
-      frameWidth: 32,
-      frameHeight: 32,
-    });
-    this.load.image('boss', 'src/assets/images/boss.png');
-    this.load.image('missile', 'src/assets/images/missile.png');
-    this.load.image('playerPlane', 'src/assets/images/player_plane.png');
-    this.load.image('fighter', 'src/assets/images/fighter.png');
-    this.load.audio('desertMusic', ['src/assets/audio/desert.ogg']);
-    this.load.audio('explosionSound', 'src/assets/audio/explosion.mp3');
-    this.load.audio('shootSound', 'src/assets/audio/missile.ogg');
-  }
-
   create() {
     const myself = this;
     this.add.image(400, 300, 'desert').setDisplaySize(800, 600);

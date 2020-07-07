@@ -15,11 +15,6 @@ export default class GameScene4 extends Phaser.Scene {
     super('Game4');
   }
 
-  preload() {
-    this.load.image('attack_hel', 'src/assets/images/attack_hel.png');
-    this.load.audio('forestMusic', ['src/assets/audio/forest.wav']);
-  }
-
   create() {
     const myself = this;
     this.add.image(400, 300, 'forest').setDisplaySize(800, 600);

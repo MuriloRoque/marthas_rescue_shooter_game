@@ -16,11 +16,6 @@ export default class GameScene5 extends Phaser.Scene {
     super('Game5');
   }
 
-  preload() {
-    this.load.image('attack_air', 'src/assets/images/attack_air.png');
-    this.load.audio('riverMusic', ['src/assets/audio/river.mp3']);
-  }
-
   create() {
     const myself = this;
     this.add.image(400, 300, 'river').setDisplaySize(800, 600);

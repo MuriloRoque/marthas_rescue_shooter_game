@@ -6,10 +6,6 @@ export default class Chapter3DialogueScene extends Phaser.Scene {
     super('Chapter3Dialogue');
   }
 
-  preload() {
-    this.load.image('swamp', 'src/assets/images/swamp.png');
-  }
-
   create() {
     this.add.image(400, 300, 'swamp').setDisplaySize(800, 600);
     const dialog = this.rexUI.add.dialog({

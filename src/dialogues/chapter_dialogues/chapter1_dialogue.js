@@ -6,10 +6,6 @@ export default class Chapter1DialogueScene extends Phaser.Scene {
     super('Chapter1Dialogue');
   }
 
-  preload() {
-    this.load.image('desert', 'src/assets/images/desert.png');
-  }
-
   create() {
     this.add.image(400, 300, 'desert').setDisplaySize(800, 600);
     const dialog = this.rexUI.add.dialog({

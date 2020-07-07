@@ -73,6 +73,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
+    this.load.image('background', 'src/assets/images/background.jpg');
     this.load.image('start_button', 'src/assets/images/button_start.png');
     this.load.image('start_button_click', 'src/assets/images/button_start_click.png');
     this.load.image('options_button', 'src/assets/images/button_options.png');
@@ -88,7 +89,39 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('logo', 'src/assets/images/logo.png');
     this.load.image('checkedBox', 'src/assets/images/checked_box.png');
     this.load.image('box', 'src/assets/images/unchecked_box.png');
+    this.load.image('microverse', 'src/assets/images/microverse.png');
+    this.load.image('openart', 'src/assets/images/openart.webp');
+    this.load.image('desert', 'src/assets/images/desert.png');
+    this.load.image('oasis', 'src/assets/images/oasis.png');
+    this.load.image('swamp', 'src/assets/images/swamp.png');
+    this.load.image('forest', 'src/assets/images/forest.png');
+    this.load.image('river', 'src/assets/images/river.png');
+    this.load.image('warzone', 'src/assets/images/warzone.png');
+    this.load.image('playerPlane', 'src/assets/images/player_plane.png');
+    this.load.image('boss', 'src/assets/images/boss.png');
+    this.load.image('fighter', 'src/assets/images/fighter.png');
+    this.load.image('bomber', 'src/assets/images/bomber.png');
+    this.load.image('chaser', 'src/assets/images/chaser.png');
+    this.load.image('attack_hel', 'src/assets/images/attack_hel.png');
+    this.load.image('attack_air', 'src/assets/images/attack_air.png');
+    this.load.image('multirole', 'src/assets/images/multirole.png');
+    this.load.image('missile', 'src/assets/images/missile.png');
+    this.load.image('bomb', 'src/assets/images/bomb.png');
+    this.load.spritesheet('explosion', 'src/assets/images/explosion.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
+    this.load.audio('explosionSound', 'src/assets/audio/explosion.mp3');
+    this.load.audio('shootSound', 'src/assets/audio/missile.ogg');
     this.load.audio('main_menu_music', ['src/assets/audio/main_menu.mp3']);
+    this.load.audio('desertMusic', ['src/assets/audio/desert.ogg']);
+    this.load.audio('oasisMusic', ['src/assets/audio/oasis.ogg']);
+    this.load.audio('swampMusic', ['src/assets/audio/swamp.mp3']);
+    this.load.audio('forestMusic', ['src/assets/audio/forest.wav']);
+    this.load.audio('riverMusic', ['src/assets/audio/river.mp3']);
+    this.load.audio('warzoneMusic', ['src/assets/audio/warzone.mp3']);
+    this.load.bitmapFont('arcade', 'src/assets/images/arcade.png', 'src/assets/text/arcade.xml');
+    this.load.html('name_form', 'src/assets/text/name_form.html');
   }
 
   ready() {
