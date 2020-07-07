@@ -14,9 +14,15 @@ export default class LeaderboardScene extends Phaser.Scene {
 
   create () {
     this.cameras.main.setBackgroundColor('#000111');
+    const loading = this.add.bitmapText(250, 250, 'arcade', 'Loading...').setTint(0xff00ff);
     this.menuButton = new Button(this, 400, 550, 'menu_button', 'menu_button_click', 'Title');
-    this.add.bitmapText(100, 260, 'arcade', 'RANK  SCORE   NAME').setTint(0xff00ff);
-    this.add.bitmapText(100, 310, 'arcade', '1ST   50000').setTint(0xff0000);
-    this.playerText = this.add.bitmapText(580, 310, 'arcade', '').setTint(0xff0000);
+    getScores().then((scores) => {
+      loading.destroy();
+      scores.sort((a, b) => b.score - a.score);
+      this.add.bitmapText(100, 20, 'arcade', 'RANK  SCORE   NAME').setTint(0xff00ff);
+      for(let i = 0; i <= 4; i += 1){
+        this.add.bitmapText(100, 100 * (i + 1), 'arcade', ` ${i + 1}     ${scores[i].score}   ${scores[i].user}`).setTint(0xff0000);
+      }
+    });
   }
 }

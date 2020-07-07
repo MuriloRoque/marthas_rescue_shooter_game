@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { putScore } from '../leaderboard';
 
 export default class PlayerInputScene extends Phaser.Scene {
   constructor() {
@@ -18,7 +19,7 @@ export default class PlayerInputScene extends Phaser.Scene {
       if (event.target.name === 'confirmButton') {
         const inputUsername = this.getChildByName('username');
         if (inputUsername.value !== '') {
-          localStorage.setItem('playerName', inputUsername.value);
+          putScore(inputUsername.value, localStorage.getItem('score'));
           this.scene.scene.start('Title');
         } else {
           this.scene.tweens.add({
