@@ -140,6 +140,8 @@ Nigel: "Martha, congratulations on destroying this outpost, the agency sent you 
 
 ## Chapter 6 (Project Riese)
 
+Martha has arrived at the final command outpost.
+
 Martha: "Dad, I'm coming, hang in there!"
 
 ** battle **
@@ -251,7 +253,7 @@ Each boss will behave differently:
 
 - Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
 
-- Chapter 6: Boss will shoot triple chasing missiles with bombs and create a temporary shield from time to time, needs 40 hits to be destroyed.
+- Chapter 6: Boss will shoot triple chasing missiles with bombs, needs 40 hits to be destroyed.
 
 ![boss_plane](../src/assets/images/boss.png)
 
@@ -273,11 +275,9 @@ There are two types of attacks, missiles and bombs, the player takes one damage 
 
 At the end of each stage, the player will be able to choose one out of two random bonuses for the next stage:
 
-- Increase move speed by 20%
+- Increase move speed
 - Add one more vertical missile (up to 3)
-- Add one more diagonal missile (up to 3)
-- Add shield
-- Increase attack speed by 20%
+- Increase attack speed
 
 # Developer's Notes
 
@@ -313,9 +313,15 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
   - Boss Planes: [MNDV.ecb](https://opengameart.org/users/mndvecb)
   - Bombs: [MSavioti](https://opengameart.org/users/msavioti)
   - Missiles: [samoliver](https://opengameart.org/users/samoliver)
-  - Explosions: [Tiao Ferreira](https://opengameart.org/users/tiao-ferreira)
+  - Explosions: [den_yes](https://opengameart.org/users/denyes)
   - Desert: [Leonard pabin](https://opengameart.org/users/leonard-pabin)
   - Oasis and Swamp: [bluecarrot16](https://opengameart.org/users/bluecarrot16)
   - Forest: [surt](https://opengameart.org/users/surt)
   - River: [bernhard1020](https://opengameart.org/users/bernhard1020)
   - Warzone: [Canvas Digital Studios](https://opengameart.org/users/canvas-digital-studios)
+  - Main menu song: [synicmusic](https://opengameart.org/users/cynicmusic)
+  - Checkboxes: [Atrus](https://opengameart.org/users/atrus)
+  - Desert song: [yd](https://opengameart.org/users/yd)
+  - Forest song: [mrpoly](https://opengameart.org/users/mrpoly)
+  - Oasis song: [bart](https://opengameart.org/users/bart)
+  - Swamp, River and Warzone songs: [Matthew Pablo](https://opengameart.org/users/matthew-pablo)
