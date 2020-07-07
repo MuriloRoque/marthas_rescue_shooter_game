@@ -44,7 +44,7 @@ export default class IntoScene extends Phaser.Scene {
     });
   }
 
-  update(){
+  update() {
     if (this.keySpace.isDown) {
       this.scene.start('Chapter1Dialogue');
     }
