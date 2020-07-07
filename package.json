@@ -23,10 +23,14 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
+    "babel-core": "^6.26.3",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
     "file-loader": "^6.0.0",
     "jest": "^26.1.0",
+    "jest-canvas-mock": "^2.2.0",
+    "node-fetch": "^2.6.0",
     "raw-loader": "^4.0.1",
     "regenerator": "^0.14.5",
     "webpack-cli": "^3.3.12",
@@ -43,22 +47,6 @@
     "webpack-merge": "^4.2.2"
   },
   "jest": {
-    "modulePaths": [
-      "/shared/vendor/modules"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "bower_components",
-      "shared"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less|sass|scss)$": "identity-obj-proxy",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js",
-      "^config$": "<rootDir>/configs/app-config.js"
-    }
+    "setupFiles": ["jest-canvas-mock"]
   }
 }
