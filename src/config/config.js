@@ -6,7 +6,11 @@ export default {
   width: 800,
   height: 600,
   autoCenter: Phaser.Scale.CENTER_BOTH,
-  backgroundColor: '#FFFF00',
+  backgroundColor: '#000111',
+  parent: 'phaser-container',
+  dom: {
+    createContainer: true,
+  },
   physics: {
     default: 'arcade',
     arcade: {

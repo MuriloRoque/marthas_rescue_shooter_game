@@ -31,20 +31,13 @@ export default class EndGameScene extends Phaser.Scene {
       delay: 1000,
     });
 
-    this.imageTween1 = this.tweens.add({
-      targets: this.image1,
-      y: -200,
-      duration: 13000,
-      delay: 1000,
-    });
-
     this.madeByTween = this.tweens.add({
       targets: this.madeByText,
       y: -200,
       duration: 14000,
       delay: 1000,
       onComplete: function startTitle() {
-        this.scene.start('Title');
+        this.scene.start('PlayerInput');
       }.bind(this),
     });
   }
