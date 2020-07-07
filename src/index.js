@@ -36,11 +36,7 @@ import Chapter5EndDialogueScene1 from './dialogues/chapter_dialogues/chapter5_en
 import Chapter5EndDialogueScene2 from './dialogues/chapter_dialogues/chapter5_end_dialogue2';
 import Chapter6EndDialogueScene1 from './dialogues/chapter_dialogues/chapter6_end_dialogue1';
 import Chapter6EndDialogueScene2 from './dialogues/chapter_dialogues/chapter6_end_dialogue2';
-import Chapter1BonusScene from './bonuses/chapter1_bonus';
-import Chapter2BonusScene from './bonuses/chapter2_bonus';
-import Chapter3BonusScene from './bonuses/chapter3_bonus';
-import Chapter4BonusScene from './bonuses/chapter4_bonus';
-import Chapter5BonusScene from './bonuses/chapter5_bonus';
+import Dialogue from './scenes/dialogues';
 import Music from './models/music';
 
 localStorage.clear();
@@ -86,11 +82,11 @@ class Game extends Phaser.Game {
     this.scene.add('Chapter5EndDialogue2', Chapter5EndDialogueScene2);
     this.scene.add('Chapter6EndDialogue1', Chapter6EndDialogueScene1);
     this.scene.add('Chapter6EndDialogue2', Chapter6EndDialogueScene2);
-    this.scene.add('Chapter1Bonus', Chapter1BonusScene);
-    this.scene.add('Chapter2Bonus', Chapter2BonusScene);
-    this.scene.add('Chapter3Bonus', Chapter3BonusScene);
-    this.scene.add('Chapter4Bonus', Chapter4BonusScene);
-    this.scene.add('Chapter5Bonus', Chapter5BonusScene);
+    this.scene.add('Chapter1Bonus', new Dialogue('Chapter1Bonus', 'desert', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter2Dialogue'));
+    this.scene.add('Chapter2Bonus', new Dialogue('Chapter2Bonus', 'oasis', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter3Dialogue'));
+    this.scene.add('Chapter3Bonus', new Dialogue('Chapter3Bonus', 'swamp', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter4Dialogue'));
+    this.scene.add('Chapter4Bonus', new Dialogue('Chapter4Bonus', 'forest', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter5Dialogue'));
+    this.scene.add('Chapter5Bonus', new Dialogue('Chapter5Bonus', 'river', "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:", 'Chapter6Dialogue'));
     this.scene.start('Boot');
   }
 }

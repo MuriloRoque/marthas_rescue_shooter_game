@@ -1,30 +1,28 @@
 import Phaser from 'phaser';
 import createLabel from '../dialogues/create_label';
 
-export default class Chapter5BonusScene extends Phaser.Scene {
-  constructor() {
-    super('Chapter5Bonus');
+export default class Dialogue extends Phaser.Scene {
+  constructor(scene, key, content, next_dialogue) {
+    super(scene);
+    this.key = key;
+    this.content = content;
+    this.next_dialogue = next_dialogue;
   }
 
   create() {
-    this.add.image(400, 300, 'river').setDisplaySize(800, 600);
+    this.add.image(400, 300, this.key).setDisplaySize(800, 600);
     const dialog = this.rexUI.add.dialog({
       x: 400,
       y: 300,
       width: 500,
-
       background: this.rexUI.add.roundRectangle(0, 0, 100, 100, 20, 0x466D1D),
-
       title: createLabel(this, 'BONUS').setDraggable(),
-
-      content: createLabel(this, "Nigel: 'Martha, congratulations on\ndestroying this outpost, the agency\n sent you a gift, please choose one:"),
-
+      content: createLabel(this, this.content),
       actions: [
         createLabel(this, 'Missile + (Max 3)'),
         createLabel(this, 'Move Speed'),
         createLabel(this, 'Attack Speed'),
       ],
-
       space: {
         left: 20,
         right: 20,
@@ -60,7 +58,7 @@ export default class Chapter5BonusScene extends Phaser.Scene {
     this.print = this.add.text(0, 0, '');
     dialog
       .on('button.click', function buttonClick(button) {
-        const bonuses = JSON.parse(localStorage.getItem('bonuses'));
+        const bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
         if (button.text === 'Missile + (Max 3)') {
           bonuses.bonus1 += 1;
         } else if (button.text === 'Move Speed') {
@@ -69,7 +67,7 @@ export default class Chapter5BonusScene extends Phaser.Scene {
           bonuses.bonus3 += 1;
         }
         localStorage.setItem('bonuses', JSON.stringify(bonuses));
-        this.scene.start('Chapter6Dialogue');
+        this.scene.start(this.next_dialogue);
       }, this)
       .on('button.over', (button) => {
         button.getElement('background').setStrokeStyle(1, 0xffffff);
