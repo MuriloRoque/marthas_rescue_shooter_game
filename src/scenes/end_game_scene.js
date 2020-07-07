@@ -1,11 +1,6 @@
 import Phaser from 'phaser';
 import config from '../config/config';
 
-const startTitle = (tween, scene) => {
-  tween.destroy();
-  scene.start('Title');
-};
-
 export default class EndGameScene extends Phaser.Scene {
   constructor() {
     super('EndGame');
@@ -34,9 +29,6 @@ export default class EndGameScene extends Phaser.Scene {
       y: -200,
       duration: 3000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.imageTween1 = this.tweens.add({
@@ -44,9 +36,6 @@ export default class EndGameScene extends Phaser.Scene {
       y: -200,
       duration: 13000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.madeByTween = this.tweens.add({
@@ -54,7 +43,9 @@ export default class EndGameScene extends Phaser.Scene {
       y: -200,
       duration: 14000,
       delay: 1000,
-      onComplete: startTitle(this.madeByTween, this.scene).bind(this),
+      onComplete: function startTitle() {
+        this.scene.start('Title');
+      }.bind(this),
     });
   }
 }

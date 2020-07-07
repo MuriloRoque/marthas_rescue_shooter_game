@@ -1,11 +1,6 @@
 import Phaser from 'phaser';
 import config from '../config/config';
 
-const startTitle = (tween, scene) => {
-  tween.destroy();
-  scene.start('Title');
-};
-
 export default class CreditsScene extends Phaser.Scene {
   constructor() {
     super('Credits');
@@ -82,9 +77,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 3000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.imageTween1 = this.tweens.add({
@@ -92,9 +84,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 13000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.madeByTween1 = this.tweens.add({
@@ -102,9 +91,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 14000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.madeByTween2 = this.tweens.add({
@@ -112,9 +98,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 20000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.madeByTween3 = this.tweens.add({
@@ -122,9 +105,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 25000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.imageTween2 = this.tweens.add({
@@ -132,9 +112,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 28800,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.madeByTween4 = this.tweens.add({
@@ -142,9 +119,6 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 35000,
       delay: 1000,
-      onComplete() {
-        this.destroy();
-      },
     });
 
     this.imageTween3 = this.tweens.add({
@@ -152,7 +126,9 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 38800,
       delay: 1000,
-      onComplete: startTitle(this.imageTween3, this.scene).bind(this),
+      onComplete: function startTitle() {
+        this.scene.start('Title');
+      }.bind(this),
     });
   }
 }
