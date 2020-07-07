@@ -94,6 +94,7 @@ export default class Player extends Entity {
         this.scene.playerMissiles.add(missile);
         missile.setScale(0.5);
         this.setData('timerShootTick', 0);
+        this.scene.sfx.missile.play();
       } else if (this.bonus1 === 1) {
         const missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
         const missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
@@ -102,6 +103,7 @@ export default class Player extends Entity {
         missile1.setScale(0.5);
         missile2.setScale(0.5);
         this.setData('timerShootTick', 0);
+        this.scene.sfx.missile.play();
       } else if (this.bonus1 >= 2) {
         const missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
         const missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
@@ -113,6 +115,7 @@ export default class Player extends Entity {
         missile2.setScale(0.5);
         missile3.setScale(0.5);
         this.setData('timerShootTick', 0);
+        this.scene.sfx.missile.play();
       }
     }
   }

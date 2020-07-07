@@ -22,6 +22,8 @@ export default class GameScene1 extends Phaser.Scene {
     this.load.image('playerPlane', 'src/assets/images/player_plane.png');
     this.load.image('fighter', 'src/assets/images/fighter.png');
     this.load.audio('desertMusic', ['src/assets/audio/desert.ogg']);
+    this.load.audio("explosionSound", "src/assets/audio/explosion.mp3");
+    this.load.audio("shootSound", "src/assets/audio/missile.ogg");
   }
 
   create() {
@@ -43,12 +45,17 @@ export default class GameScene1 extends Phaser.Scene {
     this.music = this.sys.game.globals.music;
     if (this.music.musicOn === true) {
       this.sys.game.globals.bgMusic.stop();
-      this.bgMusic = this.sound.add('desertMusic', { volume: 0.5, loop: true });
+      this.bgMusic = this.sound.add('desertMusic', { volume: 0.7, loop: true });
       this.bgMusic.play();
       this.music.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
       this.sys.game.globals.bgMusic.play();
     }
+
+    this.sfx = {
+      explosion: this.sound.add("explosionSound", { volume: 0.1 }),
+      missile: this.sound.add("shootSound", { volume: 0.1 })
+    };
 
     this.player = new Player(
       this,

@@ -43,12 +43,17 @@ export default class GameScene3 extends Phaser.Scene {
     this.music = this.sys.game.globals.music;
     if (this.music.musicOn === true) {
       this.sys.game.globals.bgMusic.stop();
-      this.bgMusic = this.sound.add('swampMusic', { volume: 0.5, loop: true });
+      this.bgMusic = this.sound.add('swampMusic', { volume: 0.7, loop: true });
       this.bgMusic.play();
       this.music.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
       this.sys.game.globals.bgMusic.play();
     }
+
+    this.sfx = {
+      explosion: this.sound.add("explosionSound", { volume: 0.1 }),
+      missile: this.sound.add("shootSound", { volume: 0.1 })
+    };
 
     this.player = new Player(
       this,

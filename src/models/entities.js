@@ -14,6 +14,7 @@ export default class Entity extends Phaser.GameObjects.Sprite {
   explode(canDestroy) {
     if (!this.getData('isDead')) {
       this.setTexture('explosion').setScale(2);
+      this.scene.sfx.explosion.play();
       this.play('explosion');
       if (this.shootTimer !== undefined) {
         if (this.shootTimer) {

@@ -325,3 +325,5 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
   - Forest song: [mrpoly](https://opengameart.org/users/mrpoly)
   - Oasis song: [bart](https://opengameart.org/users/bart)
   - Swamp, River and Warzone songs: [Matthew Pablo](https://opengameart.org/users/matthew-pablo)
+  - Explosion sound: [Joth](https://opengameart.org/users/joth)
+  - Shoots sound: [Stephen M. Cameron](http://sourceforge.net/users/smcameron)
