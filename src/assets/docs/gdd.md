@@ -176,9 +176,9 @@ Father: "It's a long story, but a very good one, it all began when I..."
 
 The player will control a fighter plane that can initially shoot one missile up at a normal speed and take up to 3 hits before being destroyed, the player can increase the firepower and speed by getting bonuses at the end of each stage.
 
-![player_plane](../src/assets/images/player_plane.png)
+![player_plane](../images/player_plane.png)
 
-![explosion](../src/assets/images/explosion.png)
+![explosion](../images/explosion.png)
 
 
 ## Stages
@@ -187,27 +187,27 @@ Each stage will have a different type of terrain and new enemy types:
 
 - Chapter 1: { terrain: Desert, enemy: Fighter }
 
-![desert](../src/assets/images/desert.png)
+![desert](../images/desert.png)
 
 - Chapter 2: { terrain: Oasis, enemy: Bomber }
 
-![oasis](../src/assets/images/oasis.png)
+![oasis](../images/oasis.png)
 
 - Chapter 3: { terrain: Swamp, enemy: Chaser }
 
-![swamp](../src/assets/images/swamp.png)
+![swamp](..images/swamp.png)
 
 - Chapter 4: { terrain: Forest, enemy: Attack Helicopter }
 
-![forest](../src/assets/images/forest.png)
+![forest](../images/forest.png)
 
 - Chapter 5: { terrain: River, enemy: Attack Airplane }
 
-![river](../src/assets/images/river.png)
+![river](../images/river.png)
 
 - Chapter 6: { terrain: Warzone, enemy: Multirole }
 
-![warzone](../src/assets/images/warzone.png)
+![warzone](../images/warzone.png)
 
 
 ## Enemy
@@ -216,46 +216,46 @@ This is the description of each type of enemy's features:
 
 - Fighter: Shoots single missiles down.
 
-![fighter](../src/assets/images/fighter.png)
+![fighter](../images/fighter.png)
 
 - Bomber: Shoots single bombs down.
 
-![bomber](../src/assets/images/bomber.png)
+![bomber](../images/bomber.png)
 
 - Chaser: Chases the player's plane and self-destructs.
 
-![chaser](../src/assets/images/chaser.png)
+![chaser](../images/chaser.png)
 
 - Attack Helicopter: Shoots double missiles down.
 
-![attack_hel](../src/assets/images/attack_hel.png)
+![attack_hel](../images/attack_hel.png)
 
 - Attack Airplane: Shoots single missiles down at a high speed.
 
-![attack_air](../src/assets/images/attack_air.png)
+![attack_air](../images/attack_air.png)
 
 - Multirole: Moves slowly but shoots missiles down and diagonally.
 
-![multirole](../src/assets/images/multirole.png)
+![multirole](../images/multirole.png)
 
 
 ## Bosses
 
 Each boss will behave differently:
 
-- Chapter 1: Boss will shoot missiles down and diagonally, needs 15 hits to be destroyed.
+- Chapter 1: Boss will shoot missiles down and diagonally, needs 25 hits to be destroyed.
 
-- Chapter 2: Boss will shoot double missiles down with bombs, needs 20 hits to be destroyed.
+- Chapter 2: Boss will shoot double missiles down with bombs, needs 35 hits to be destroyed.
 
-- Chapter 3: Boss will shoot chasing missiles at the player, needs 25 hits to be destroyed.
+- Chapter 3: Boss will shoot chasing missiles at the player, needs 45 hits to be destroyed.
 
-- Chapter 4: Boss will shoot triple missiles down at a high speed, needs 30 hits to be destroyed.
+- Chapter 4: Boss will shoot triple missiles down at a high speed, needs 55 hits to be destroyed.
 
-- Chapter 5: Boss will shoot triple chasing missiles, needs 35 hits to be destroyed.
+- Chapter 5: Boss will shoot triple chasing missiles, needs 65 hits to be destroyed.
 
-- Chapter 6: Boss will shoot triple chasing missiles with bombs, needs 40 hits to be destroyed.
+- Chapter 6: Boss will shoot triple chasing missiles with bombs, needs 80 hits to be destroyed.
 
-![boss_plane](../src/assets/images/boss.png)
+![boss_plane](../images/boss.png)
 
 
 ## Attacks
@@ -264,11 +264,11 @@ There are two types of attacks, missiles and bombs, the player takes one damage 
 
 - Missiles: The area is small.
 
-![missile](../src/assets/images/missile.png)
+![missile](../images/missile.png)
 
 - Bombs: The area is big.
 
-![bomb](../src/assets/images/bomb.png)
+![bomb](../images/bomb.png)
 
 
 ## Bonuses

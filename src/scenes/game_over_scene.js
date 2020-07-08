@@ -7,10 +7,9 @@ export default class GameOverScene extends Phaser.Scene {
   }
 
   create(currentScene) {
-    if(currentScene === 'Game1'){
+    if (currentScene === 'Game1') {
       this.menuButton = new Button(this, 400, 300, 'menu_button', 'menu_button_click', 'Title');
-    }
-    else{
+    } else {
       this.menuButton = new Button(this, 400, 300, 'menu_button', 'menu_button_click', 'PlayerInput');
     }
     this.restartButton = new Button(this, 400, 400, 'restart_button', 'restart_button_click', currentScene);
