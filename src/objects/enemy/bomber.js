@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import Entity from '../entities';
-import EnemyBomb from '../attacks/enemy_bomb';
+import Shoot from '../attacks/shoot';
 
 export default class Bomber extends Entity {
   constructor(scene, x, y) {
@@ -11,24 +11,12 @@ export default class Bomber extends Entity {
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        const missile = new EnemyBomb(
-          this.scene,
-          this.x,
-          this.y,
-        );
-        missile.setScale(1.5);
-        this.scene.enemyMissiles.add(missile);
+        const bomb = new Shoot(this.scene, this.x, this.y, 'bomb', 1, 0);
+        bomb.setScale(1.5);
+        this.scene.enemyMissiles.add(bomb);
       },
       callbackScope: this,
       loop: true,
     });
-  }
-
-  onDestroy() {
-    if (this.shootTimer !== undefined) {
-      if (this.shootTimer) {
-        this.shootTimer.remove(false);
-      }
-    }
   }
 }

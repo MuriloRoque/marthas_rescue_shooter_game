@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import Entity from './entities';
-import PlayerMissile from './attacks/player_missile';
+import Shoot from './attacks/shoot';
 
 export default class Player extends Entity {
   constructor(scene, x, y, key, score, bonus1, bonus2, bonus3) {
@@ -89,31 +89,25 @@ export default class Player extends Entity {
     if (this.getData('isShooting')) {
       if (this.getData('timerShootTick') < this.getData('timerShootDelay')) {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1);
-      } else if (this.bonus1 === 0) {
-        const missile = new PlayerMissile(this.scene, this.x, this.y);
-        this.scene.playerMissiles.add(missile);
-        missile.setScale(0.5);
-        this.setData('timerShootTick', 0);
-        this.scene.sfx.missile.play();
-      } else if (this.bonus1 === 1) {
-        const missile1 = new PlayerMissile(this.scene, this.x - 22, this.y);
-        const missile2 = new PlayerMissile(this.scene, this.x + 22, this.y);
-        this.scene.playerMissiles.add(missile1);
-        this.scene.playerMissiles.add(missile2);
-        missile1.setScale(0.5);
-        missile2.setScale(0.5);
-        this.setData('timerShootTick', 0);
-        this.scene.sfx.missile.play();
-      } else if (this.bonus1 >= 2) {
-        const missile1 = new PlayerMissile(this.scene, this.x - 22, this.y);
-        const missile2 = new PlayerMissile(this.scene, this.x + 22, this.y);
-        const missile3 = new PlayerMissile(this.scene, this.x, this.y);
-        this.scene.playerMissiles.add(missile1);
-        this.scene.playerMissiles.add(missile2);
-        this.scene.playerMissiles.add(missile3);
-        missile1.setScale(0.5);
-        missile2.setScale(0.5);
-        missile3.setScale(0.5);
+      }
+      else{
+        if (this.bonus1 === 0) {
+          const missile = new Shoot(this.scene, this.x, this.y, 'missile', -1, 0);
+          missile.setScale(0.5);
+          this.scene.playerMissiles.add(missile);
+        } else if (this.bonus1 === 1) {
+          for(let i = -22; i <= 22; i += 44){
+            const missile = new PlayerMissile(this.scene, this.x + i, this.y);
+            missile.setScale(0.5);
+            this.scene.playerMissiles.add(missile);
+          }
+        } else if (this.bonus1 >= 2) {
+          for(let i = -22; i <= 22; i += 22){
+            const missile = new PlayerMissile(this.scene, this.x + i, this.y);
+            missile.setScale(0.5);
+            this.scene.playerMissiles.add(missile);
+          }
+        }
         this.setData('timerShootTick', 0);
         this.scene.sfx.missile.play();
       }

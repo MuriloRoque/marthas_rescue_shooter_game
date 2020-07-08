@@ -1,7 +1,5 @@
 import Entity from '../entities';
-import EnemyMissile from '../attacks/enemy_missile';
-import DiagonalRightMissile from '../attacks/diagonal_right_missile';
-import DiagonalLeftMissile from '../attacks/diagonal_left_missile';
+import Shoot from '../attacks/shoot';
 
 export default class Multirole extends Entity {
   constructor(scene, x, y) {
@@ -12,38 +10,14 @@ export default class Multirole extends Entity {
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        const missile = new EnemyMissile(
-          this.scene,
-          this.x,
-          this.y,
-        );
-        const diagonalRightMissile = new DiagonalRightMissile(
-          this.scene,
-          this.x,
-          this.y,
-        );
-        const diagonalLeftMissile = new DiagonalLeftMissile(
-          this.scene,
-          this.x,
-          this.y,
-        );
-        missile.setScale(0.5);
-        diagonalRightMissile.setScale(0.5);
-        diagonalLeftMissile.setScale(0.5);
-        this.scene.enemyMissiles.add(missile);
-        this.scene.enemyMissiles.add(diagonalRightMissile);
-        this.scene.enemyMissiles.add(diagonalLeftMissile);
+        for(let i = -1; i <= 1; i += 1){
+          const missile = new Shoot(this.scene, this.x, this.y, 'missile', 1, i);
+          this.scene.enemyMissiles.add(missile);
+          missile.setScale(0.5);
+        }
       },
       callbackScope: this,
       loop: true,
     });
-  }
-
-  onDestroy() {
-    if (this.shootTimer !== undefined) {
-      if (this.shootTimer) {
-        this.shootTimer.remove(false);
-      }
-    }
   }
 }
