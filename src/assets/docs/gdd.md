@@ -195,7 +195,7 @@ Each stage will have a different type of terrain and new enemy types:
 
 - Chapter 3: { terrain: Swamp, enemy: Chaser }
 
-![swamp](..images/swamp.png)
+![swamp](../images/swamp.png)
 
 - Chapter 4: { terrain: Forest, enemy: Attack Helicopter }
 
