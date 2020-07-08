@@ -55,7 +55,7 @@ In this project I:
 
 ## Live Demo
 
-[Click here to see it on Heroku!](https://marthas-rescue.netlify.app/)
+[Click here to see it on Netlify!](https://marthas-rescue.netlify.app/)
 
 ## Getting Started
 
