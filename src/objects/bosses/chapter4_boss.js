@@ -12,7 +12,7 @@ export default class Boss4 extends Entity {
       delay: 500,
       callback() {
         this.body.velocity.x = Phaser.Math.Between(-200, 200);
-        for(let i = -70; i <= 70; i += 70){
+        for (let i = -70; i <= 70; i += 70) {
           const missile = new Shoot(this.scene, this.x + i, this.y, 'missile', 1, 0);
           this.scene.enemyMissiles.add(missile);
         }

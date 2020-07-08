@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Button from '../models/button';
+import Button from '../objects/buttons';
 import { getScores } from '../leaderboard';
 
 export default class LeaderboardScene extends Phaser.Scene {

@@ -40,7 +40,7 @@ export default class IntoScene extends Phaser.Scene {
       delay: 0,
       onComplete: (() => {
         this.scene.start('Chapter1Dialogue');
-      }).bind(this),
+      }),
     });
   }
 

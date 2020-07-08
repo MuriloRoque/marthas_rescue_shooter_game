@@ -10,7 +10,7 @@ export default class Multirole extends Entity {
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
       callback() {
-        for(let i = -1; i <= 1; i += 1){
+        for (let i = -1; i <= 1; i += 1) {
           const missile = new Shoot(this.scene, this.x, this.y, 'missile', 1, i);
           this.scene.enemyMissiles.add(missile);
           missile.setScale(0.5);

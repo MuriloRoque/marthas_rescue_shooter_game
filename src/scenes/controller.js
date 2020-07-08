@@ -10,8 +10,8 @@ import PlayerInputScene from './player_input';
 import LeaderboardScene from './leaderboard_scene';
 import IntroScene from './intro_scene';
 import GameScene from './chapter_scene';
-import BonusDialogue from './bonus_dialogues';
-import Dialogue from './dialogues';
+import BonusDialogue from './bonus_dialogue';
+import Dialogue from './dialogue';
 
 export default class Controller extends Phaser.Scene {
   constructor() {
@@ -51,14 +51,17 @@ and give up right now if you want\n
 to live.' Adolf (Boss): 'Unfortunately\n
 for you, this fight won't be as easy\n
 as the previous ones!'`];
-    const endDialogues = ['\'I guess he didn\'t know where my father is,\nbut I found a note here!\'\nNote: \'Find the giant\'\nMartha: \'What does that mean?\'',
-      '\'Tell me where he is now!\'\nKarl (Boss): \'You won\'t get away with this,\nthe seven must live!\'\nMartha: \'What do you mean?\'\nMartha: \'He\'s gone...\'',
-      '\'This is the third one and\nI still got nothing.Huh, what\'s\nthat written on the wall?\'\nWall: \'Your destiny is in the sleepless mountain\'\nMartha: \'Hmmm\'',
-      '\'What is that? A chest?\'\n** opens the chest **\nMartha: \'There\'s a toy castle inside,\nvery curious.\'',
-      '\'I have destroyed the last outpost\nand found nothing.\' Martha: \'Wait a minute,\nthe clues must mean something.\'\nNigel: \'That\'s right, Martha, put\nthem together!\' Martha: \'The sleepless\nmountain, it must be the Owl Mountains!\'',
-      '\'The toy castle, could it be\nKsiąż Castle?\'Nigel: \'Yes, and I\nheard the Germans are building\nseven massive underground bases\nin that location!\'Martha: \'Wait\na minute, the \'Giant\'! It must\nbe Project Riese, that\'s where my\nfather is! We must not waste time,\nlet\'s go!\'',
-      '\'He\'s unconscious, I must find\nmy father and leave as fast as possible.\'\nFather: \'Martha, in here!\'\nMartha: \'I have finally found you,\ncome on, we don\'t have much time!\'\n** huge explosion **',
-      '\'I am so happy I found you,\nyou must go back to England,\nyou will be safe there.\'\nFather: \'Martha, this war is far\nfrom over, I won\'t stop fighting\'\nMartha: \'How did you end up being\ncaptured?\' Father: \'It\'s a long story,\nbut a very good one,\nit all began when I...\''];
+    const endDialogues = [`'I guess he didn't know where\n
+my father is, but I found a\n
+note here!' Note: 'Find the\n
+giant' Martha: 'What does that mean?'`,
+    '\'Tell me where he is now!\'\nKarl (Boss): \'You won\'t get away with this,\nthe seven must live!\'\nMartha: \'What do you mean?\'\nMartha: \'He\'s gone...\'',
+    '\'This is the third one and\nI still got nothing.Huh, what\'s\nthat written on the wall?\'\nWall: \'Your destiny is in the sleepless mountain\'\nMartha: \'Hmmm\'',
+    '\'What is that? A chest?\'\n** opens the chest **\nMartha: \'There\'s a toy castle inside,\nvery curious.\'',
+    '\'I have destroyed the last outpost\nand found nothing.\' Martha: \'Wait a minute,\nthe clues must mean something.\'\nNigel: \'That\'s right, Martha, put\nthem together!\' Martha: \'The sleepless\nmountain, it must be the Owl Mountains!\'',
+    '\'The toy castle, could it be\nKsiąż Castle?\'Nigel: \'Yes, and I\nheard the Germans are building\nseven massive underground bases\nin that location!\'Martha: \'Wait\na minute, the \'Giant\'! It must\nbe Project Riese, that\'s where my\nfather is! We must not waste time,\nlet\'s go!\'',
+    '\'He\'s unconscious, I must find\nmy father and leave as fast as possible.\'\nFather: \'Martha, in here!\'\nMartha: \'I have finally found you,\ncome on, we don\'t have much time!\'\n** huge explosion **',
+    '\'I am so happy I found you,\nyou must go back to England,\nyou will be safe there.\'\nFather: \'Martha, this war is far\nfrom over, I won\'t stop fighting\'\nMartha: \'How did you end up being\ncaptured?\' Father: \'It\'s a long story,\nbut a very good one,\nit all began when I...\''];
     this.scene.add('Boot', new BootScene());
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('Title', TitleScene);

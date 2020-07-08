@@ -57,22 +57,22 @@ export default class BonusDialogue extends Phaser.Scene {
 
     this.print = this.add.text(0, 0, '');
     dialog.on('button.click', (button) => {
-        let bonuses;
-        if (this.key === 'desert') {
-          bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
-        } else {
-          bonuses = JSON.parse(localStorage.getItem('bonuses'));
-        }
-        if (button.text === 'Missile + (Max 3)') {
-          bonuses.bonus1 += 1;
-        } else if (button.text === 'Move Speed') {
-          bonuses.bonus2 += 1;
-        } else {
-          bonuses.bonus3 += 1;
-        }
-        localStorage.setItem('bonuses', JSON.stringify(bonuses));
-        this.scene.start(this.nextDialogue);
-      }, this)
+      let bonuses;
+      if (this.key === 'desert') {
+        bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
+      } else {
+        bonuses = JSON.parse(localStorage.getItem('bonuses'));
+      }
+      if (button.text === 'Missile + (Max 3)') {
+        bonuses.bonus1 += 1;
+      } else if (button.text === 'Move Speed') {
+        bonuses.bonus2 += 1;
+      } else {
+        bonuses.bonus3 += 1;
+      }
+      localStorage.setItem('bonuses', JSON.stringify(bonuses));
+      this.scene.start(this.nextDialogue);
+    }, this)
       .on('button.over', (button) => {
         button.getElement('background').setStrokeStyle(1, 0xffffff);
       })

@@ -89,21 +89,20 @@ export default class Player extends Entity {
     if (this.getData('isShooting')) {
       if (this.getData('timerShootTick') < this.getData('timerShootDelay')) {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1);
-      }
-      else{
+      } else {
         if (this.bonus1 === 0) {
           const missile = new Shoot(this.scene, this.x, this.y, 'missile', -1, 0);
           missile.setScale(0.5);
           this.scene.playerMissiles.add(missile);
         } else if (this.bonus1 === 1) {
-          for(let i = -22; i <= 22; i += 44){
-            const missile = new PlayerMissile(this.scene, this.x + i, this.y);
+          for (let i = -22; i <= 22; i += 44) {
+            const missile = new Shoot(this.scene, this.x + i, this.y, 'missile', -1, 0);
             missile.setScale(0.5);
             this.scene.playerMissiles.add(missile);
           }
         } else if (this.bonus1 >= 2) {
-          for(let i = -22; i <= 22; i += 22){
-            const missile = new PlayerMissile(this.scene, this.x + i, this.y);
+          for (let i = -22; i <= 22; i += 22) {
+            const missile = new Shoot(this.scene, this.x + i, this.y, 'missile', -1, 0);
             missile.setScale(0.5);
             this.scene.playerMissiles.add(missile);
           }
