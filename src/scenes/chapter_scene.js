@@ -276,7 +276,7 @@ export default class GameScene extends Phaser.Scene {
     });
     this.physics.add.collider(this.playerMissiles, this.enemies, (playerMissile, enemy) => {
       if (enemy) {
-        if (enemy.constructor.name === this.boss) {
+        if (enemy.hp !== undefined) {
           enemy.hp -= 1;
           playerMissile.destroy();
           if (enemy.hp === 0) {
