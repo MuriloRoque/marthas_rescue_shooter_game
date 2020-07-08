@@ -5,7 +5,7 @@ import Shoot from '../attacks/shoot';
 export default class Boss2 extends Entity {
   constructor(scene) {
     super(scene, 400, 80, 'boss', 'Boss2');
-    this.hp = 20;
+    this.hp = 35;
     this.body.collideWorldBounds = true;
 
     this.shootTimer = this.scene.time.addEvent({

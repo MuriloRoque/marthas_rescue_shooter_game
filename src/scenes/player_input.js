@@ -13,12 +13,12 @@ export default class PlayerInputScene extends Phaser.Scene {
     element.addListener('click');
     element.on('click', (event) => {
       if (event.target.name === 'confirmButton') {
-        const inputUsername = this.getChildByName('username');
+        const inputUsername = element.getChildByName('username');
         if (inputUsername.value !== '') {
           putScore(inputUsername.value, localStorage.getItem('score'));
-          this.scene.scene.start('Title');
+          element.scene.scene.start('Title');
         } else {
-          this.scene.tweens.add({
+          element.scene.tweens.add({
             targets: text, alpha: 0.1, duration: 200, ease: 'Power3', yoyo: true,
           });
         }
