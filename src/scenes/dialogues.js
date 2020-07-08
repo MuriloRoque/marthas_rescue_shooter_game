@@ -2,18 +2,17 @@ import Phaser from 'phaser';
 import createLabel from '../create_label';
 
 export default class Dialogue extends Phaser.Scene {
-  constructor(scene, key, title, content, description, next_scene, boss = false) {
+  constructor(scene, key, title, content, description, nextScene, boss = false) {
     super(scene);
     this.key = key;
     this.title = title;
     this.content = content;
     this.description = description;
-    this.next_scene = next_scene;
+    this.nextScene = nextScene;
     this.boss = boss;
-    if(this.boss){
+    if (this.boss) {
       this.label = 'Start Fight!';
-    }
-    else{
+    } else {
       this.label = 'Next';
     }
   }
@@ -65,13 +64,12 @@ export default class Dialogue extends Phaser.Scene {
 
     this.print = this.add.text(0, 0, '');
     dialog
-      .on('button.click', function buttonClick(button) {
-        if(this.boss){
+      .on('button.click', function buttonClick() {
+        if (this.boss) {
           this.scene.stop();
-          this.scene.resume(this.next_scene);
-        }
-        else{
-          this.scene.start(this.next_scene);
+          this.scene.resume(this.nextScene);
+        } else {
+          this.scene.start(this.nextScene);
         }
       }, this)
       .on('button.over', (button) => {

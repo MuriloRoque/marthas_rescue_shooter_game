@@ -2,11 +2,11 @@ import Phaser from 'phaser';
 import createLabel from '../create_label';
 
 export default class BonusDialogue extends Phaser.Scene {
-  constructor(scene, key, content, next_dialogue) {
+  constructor(scene, key, content, nextDialogue) {
     super(scene);
     this.key = key;
     this.content = content;
-    this.next_dialogue = next_dialogue;
+    this.nextDialogue = nextDialogue;
   }
 
   create() {
@@ -67,7 +67,7 @@ export default class BonusDialogue extends Phaser.Scene {
           bonuses.bonus3 += 1;
         }
         localStorage.setItem('bonuses', JSON.stringify(bonuses));
-        this.scene.start(this.next_dialogue);
+        this.scene.start(this.nextDialogue);
       }, this)
       .on('button.over', (button) => {
         button.getElement('background').setStrokeStyle(1, 0xffffff);
