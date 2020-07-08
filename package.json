@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
     "html-webpack-plugin": "^4.3.0",
     "node-fetch": "^2.6.0",
     "phaser": "^3.23.0",
@@ -47,6 +48,8 @@
     "webpack-merge": "^4.2.2"
   },
   "jest": {
-    "setupFiles": ["jest-canvas-mock"]
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
   }
 }
