@@ -58,7 +58,12 @@ export default class BonusDialogue extends Phaser.Scene {
     this.print = this.add.text(0, 0, '');
     dialog
       .on('button.click', function buttonClick(button) {
-        const bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
+        let bonuses;
+        if (this.key === 'desert') {
+          bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
+        } else {
+          bonuses = JSON.parse(localStorage.getItem('bonuses'));
+        }
         if (button.text === 'Missile + (Max 3)') {
           bonuses.bonus1 += 1;
         } else if (button.text === 'Move Speed') {

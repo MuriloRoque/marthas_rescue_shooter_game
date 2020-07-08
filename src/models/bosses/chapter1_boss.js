@@ -5,9 +5,9 @@ import DiagonalRightMissile from '../attacks/diagonal_right_missile';
 import DiagonalLeftMissile from '../attacks/diagonal_left_missile';
 
 export default class Boss1 extends Entity {
-  constructor(scene, x, y, hp) {
-    super(scene, x, y, 'boss', 'Boss1');
-    this.hp = hp;
+  constructor(scene) {
+    super(scene, 400, 80, 'boss', 'Boss1');
+    this.hp = 15;
     this.body.collideWorldBounds = true;
 
     this.shootTimer = this.scene.time.addEvent({

@@ -3,9 +3,9 @@ import Entity from '../entities';
 import EnemyMissile from '../attacks/enemy_missile';
 
 export default class Boss4 extends Entity {
-  constructor(scene, x, y, hp) {
-    super(scene, x, y, 'boss', 'Boss4');
-    this.hp = hp;
+  constructor(scene) {
+    super(scene, 400, 80, 'boss', 'Boss4');
+    this.hp = 30;
     this.body.collideWorldBounds = true;
 
     this.shootTimer = this.scene.time.addEvent({

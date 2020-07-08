@@ -3,9 +3,9 @@ import Entity from './entities';
 import PlayerMissile from './attacks/player_missile';
 
 export default class Player extends Entity {
-  constructor(scene, x, y, key, hp, score, bonus1 = 0, bonus2 = 0, bonus3 = 0) {
+  constructor(scene, x, y, key, score, bonus1, bonus2, bonus3) {
     super(scene, x, y, key, 'Player');
-    this.hp = hp;
+    this.hp = 3;
     this.score = score;
     this.bonus1 = bonus1;
     this.bonus2 = bonus2;
