@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import UIPlugin from 'phaser3-rex-plugins/templates/ui/ui-plugin';
-import Controller from '../scenes/controller';
 
 export default {
   type: Phaser.AUTO,
@@ -9,7 +8,6 @@ export default {
   autoCenter: Phaser.Scale.CENTER_BOTH,
   backgroundColor: '#000111',
   parent: 'phaser-container',
-  scene: Controller,
   dom: {
     createContainer: true,
   },

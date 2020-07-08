@@ -17,6 +17,8 @@ export default class CreditsScene extends Phaser.Scene {
     this.madeByText4 = this.add.text(0, 0, 'Thanks to OpenGameArt.org for\n\nproviding the free assets\n\nI used in this game.', { fontSize: '26px', fill: '#fff' });
     this.image3 = this.add.image(400, 200, 'openart');
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    this.skipText = this.add.text(10, 10, 'Press SPACE\nto skip', { fontSize: '10px', fill: '#fff' });
 
     Phaser.Display.Align.In.Center(
       this.creditsText,
@@ -124,5 +126,11 @@ export default class CreditsScene extends Phaser.Scene {
         this.scene.start('Title');
       }.bind(this),
     });
+  }
+
+  update() {
+    if (this.keySpace.isDown) {
+      this.scene.start('Title');
+    }
   }
 }
