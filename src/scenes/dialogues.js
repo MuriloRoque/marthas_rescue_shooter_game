@@ -64,7 +64,7 @@ export default class Dialogue extends Phaser.Scene {
 
     this.print = this.add.text(0, 0, '');
     dialog
-      .on('button.click', function buttonClick() {
+      .on('button.click', () => {
         if (this.boss) {
           this.scene.stop();
           this.scene.resume(this.nextScene);

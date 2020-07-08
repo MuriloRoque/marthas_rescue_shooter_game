@@ -304,14 +304,14 @@ export default class GameScene extends Phaser.Scene {
           && !enemy.getData('isDead')) {
         if (enemy.constructor.name === this.boss) {
           player.explode(false);
-          player.onDestroy(this.currentScene);
+          player.gameOver(this.currentScene);
           enemy.explode(true);
         } else {
           player.hp -= 1;
           enemy.explode(true);
           if (player.hp === 0) {
             player.explode(false);
-            player.onDestroy(this.currentScene);
+            player.gameOver(this.currentScene);
             enemy.explode(true);
           }
         }
@@ -324,7 +324,7 @@ export default class GameScene extends Phaser.Scene {
         missile.destroy();
         if (player.hp === 0) {
           player.explode(false);
-          player.onDestroy(this.currentScene);
+          player.gameOver(this.currentScene);
           missile.destroy();
         }
       }

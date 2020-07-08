@@ -23,12 +23,4 @@ export default class Boss3 extends Entity {
       loop: true,
     });
   }
-
-  onDestroy() {
-    if (this.shootTimer !== undefined) {
-      if (this.shootTimer) {
-        this.shootTimer.remove(false);
-      }
-    }
-  }
 }

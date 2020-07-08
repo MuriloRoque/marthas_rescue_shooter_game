@@ -122,9 +122,9 @@ export default class CreditsScene extends Phaser.Scene {
       y: -200,
       duration: 38800,
       delay: 1000,
-      onComplete: function startTitle() {
+      onComplete: (() => {
         this.scene.start('Title');
-      }.bind(this),
+      }).bind(this),
     });
   }
 

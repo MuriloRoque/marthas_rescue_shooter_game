@@ -11,7 +11,7 @@ export default class PlayerInputScene extends Phaser.Scene {
     const element = this.add.dom(400, 600).createFromCache('name_form');
     element.setPerspective(800);
     element.addListener('click');
-    element.on('click', function confirmation(event) {
+    element.on('click', (event) => {
       if (event.target.name === 'confirmButton') {
         const inputUsername = this.getChildByName('username');
         if (inputUsername.value !== '') {

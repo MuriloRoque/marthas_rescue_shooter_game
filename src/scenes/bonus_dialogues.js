@@ -56,8 +56,7 @@ export default class BonusDialogue extends Phaser.Scene {
       .popUp(1000);
 
     this.print = this.add.text(0, 0, '');
-    dialog
-      .on('button.click', function buttonClick(button) {
+    dialog.on('button.click', (button) => {
         let bonuses;
         if (this.key === 'desert') {
           bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };

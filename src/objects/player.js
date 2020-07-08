@@ -70,7 +70,7 @@ export default class Player extends Entity {
     this.body.velocity.x = this.getData('speed');
   }
 
-  onDestroy(scene) {
+  gameOver(scene) {
     this.scene.time.addEvent({
       delay: 1000,
       callback() {
@@ -96,8 +96,8 @@ export default class Player extends Entity {
         this.setData('timerShootTick', 0);
         this.scene.sfx.missile.play();
       } else if (this.bonus1 === 1) {
-        const missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
-        const missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
+        const missile1 = new PlayerMissile(this.scene, this.x - 22, this.y);
+        const missile2 = new PlayerMissile(this.scene, this.x + 22, this.y);
         this.scene.playerMissiles.add(missile1);
         this.scene.playerMissiles.add(missile2);
         missile1.setScale(0.5);
@@ -105,8 +105,8 @@ export default class Player extends Entity {
         this.setData('timerShootTick', 0);
         this.scene.sfx.missile.play();
       } else if (this.bonus1 >= 2) {
-        const missile1 = new PlayerMissile(this.scene, this.x - 20, this.y);
-        const missile2 = new PlayerMissile(this.scene, this.x + 25, this.y);
+        const missile1 = new PlayerMissile(this.scene, this.x - 22, this.y);
+        const missile2 = new PlayerMissile(this.scene, this.x + 22, this.y);
         const missile3 = new PlayerMissile(this.scene, this.x, this.y);
         this.scene.playerMissiles.add(missile1);
         this.scene.playerMissiles.add(missile2);

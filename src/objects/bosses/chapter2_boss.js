@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import Entity from '../entities';
-import EnemyMissile from '../attacks/enemy_missile';
-import EnemyBomb from '../attacks/enemy_bomb';
+import Shoot from '../attacks/shoot';
 
 export default class Boss2 extends Entity {
   constructor(scene) {
@@ -13,21 +12,9 @@ export default class Boss2 extends Entity {
       delay: 1000,
       callback() {
         this.body.velocity.x = Phaser.Math.Between(-200, 200);
-        const missile1 = new EnemyMissile(
-          this.scene,
-          this.x - 70,
-          this.y,
-        );
-        const missile2 = new EnemyMissile(
-          this.scene,
-          this.x + 70,
-          this.y,
-        );
-        const bomb = new EnemyBomb(
-          this.scene,
-          this.x,
-          this.y,
-        );
+        const missile1 = new Shoot(this.scene, this.x - 70, this.y, 'missile', 1, 0);
+        const missile2 = new Shoot(this.scene, this.x + 70, this.y, 'missile', 1, 0);
+        const bomb = new Shoot(this.scene, this.x, this.y, 'bomb', 1, 0);
         bomb.setScale(1.7);
         this.scene.enemyMissiles.add(missile1);
         this.scene.enemyMissiles.add(missile2);
@@ -36,13 +23,5 @@ export default class Boss2 extends Entity {
       callbackScope: this,
       loop: true,
     });
-  }
-
-  onDestroy() {
-    if (this.shootTimer !== undefined) {
-      if (this.shootTimer) {
-        this.shootTimer.remove(false);
-      }
-    }
   }
 }
