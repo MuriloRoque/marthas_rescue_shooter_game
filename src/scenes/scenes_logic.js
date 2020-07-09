@@ -25,7 +25,15 @@ const scenesLogic = (() => {
     }
   };
 
-  return { updateBonuses, checkBoss };
+  const checkBonuses = () => {
+    if (localStorage.getItem('bonuses') !== null) {
+      return JSON.parse(localStorage.getItem('bonuses'));
+    } else {
+      return { bonus1: 0, bonus2: 0, bonus3: 0 };
+    }
+  };
+
+  return { updateBonuses, checkBoss, checkBonuses };
 })();
 
 export default scenesLogic;

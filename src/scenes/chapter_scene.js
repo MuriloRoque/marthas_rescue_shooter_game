@@ -12,6 +12,7 @@ import Boss3 from '../objects/bosses/chapter3_boss';
 import Boss4 from '../objects/bosses/chapter4_boss';
 import Boss5 from '../objects/bosses/chapter5_boss';
 import Boss6 from '../objects/bosses/chapter6_boss';
+import scenesLogic from './scenes_logic';
 
 let life1;
 let life2;
@@ -32,11 +33,7 @@ export default class GameScene extends Phaser.Scene {
   create() {
     const myself = this;
     this.add.image(400, 300, this.key).setDisplaySize(800, 600);
-    if (localStorage.getItem('bonuses') !== null) {
-      bonuses = JSON.parse(localStorage.getItem('bonuses'));
-    } else {
-      bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
-    }
+    bonuses = scenesLogic.checkBonuses();
     if (localStorage.getItem('score') !== null) {
       score = JSON.parse(localStorage.getItem('score'));
     } else {
