@@ -1,16 +1,3 @@
-import Fighter from '../objects/enemies/fighter';
-import Bomber from '../objects/enemies/bomber';
-import Chaser from '../objects/enemies/chaser';
-import AttackHel from '../objects/enemies/attack_hel';
-import AttackAir from '../objects/enemies/attack_air';
-import Multirole from '../objects/enemies/multirole';
-import Boss1 from '../objects/bosses/chapter1_boss';
-import Boss2 from '../objects/bosses/chapter2_boss';
-import Boss3 from '../objects/bosses/chapter3_boss';
-import Boss4 from '../objects/bosses/chapter4_boss';
-import Boss5 from '../objects/bosses/chapter5_boss';
-import Boss6 from '../objects/bosses/chapter6_boss';
-
 const scenesLogic = (() => {
   const updateBonuses = (key, buttonText) => {
     let bonuses;
@@ -36,7 +23,10 @@ const scenesLogic = (() => {
     return 'Next';
   };
 
-  const checkBonuses = () => {
+  const checkBonuses = (key) => {
+    if(key === 'desert'){
+      localStorage.clear();
+    }
     if (localStorage.getItem('bonuses') !== null) {
       return JSON.parse(localStorage.getItem('bonuses'));
     }
@@ -50,178 +40,94 @@ const scenesLogic = (() => {
     return 0;
   };
 
-  const oasisEnemies = (number, position, scene) => {
+  const oasisEnemies = (number) => {
     if (number >= 0 && number <= 5) {
-      return new Fighter(
-        scene,
-        position,
-        0,
-      );
+      return 'Fighter';
     }
-    return new Bomber(
-      scene,
-      position,
-      0,
-    );
+    return 'Bomber';
   };
 
-  const swampEnemies = (number, position, scene) => {
+  const swampEnemies = (number) => {
     if (number >= 0 && number <= 3) {
-      return new Fighter(
-        scene,
-        position,
-        0,
-      );
+      return 'Fighter';
     } if (number > 3 && number <= 6) {
-      return new Bomber(
-        scene,
-        position,
-        0,
-      );
+      return 'Bomber';
     }
-    return new Chaser(
-      scene,
-      position,
-      0,
-    );
+    return 'Chaser';
   };
 
-  const forestEnemies = (number, position, scene) => {
+  const forestEnemies = (number) => {
     if (number >= 0 && number <= 2) {
-      return new Fighter(
-        scene,
-        position,
-        0,
-      );
+      return 'Fighter';
     } if (number > 2 && number <= 4) {
-      return new Bomber(
-        scene,
-        position,
-        0,
-      );
+      return 'Bomber';
     } if (number > 4 && number <= 7) {
-      return new Chaser(
-        scene,
-        position,
-        0,
-      );
+      return 'Chaser';
     }
-    return new AttackHel(
-      scene,
-      position,
-      0,
-    );
+    return 'AttackHel';
   };
 
-  const riverEnemies = (number, position, scene) => {
+  const riverEnemies = (number) => {
     if (number >= 0 && number <= 2) {
-      return new Fighter(
-        scene,
-        position,
-        0,
-      );
+      return 'Fighter';
     } if (number > 2 && number <= 4) {
-      return new Bomber(
-        scene,
-        position,
-        0,
-      );
+      return 'Bomber';
     } if (number > 4 && number <= 6) {
-      return new Chaser(
-        scene,
-        position,
-        0,
-      );
+      return 'Chaser';
     } if (number > 6 && number <= 8) {
-      return new AttackHel(
-        scene,
-        position,
-        0,
-      );
+      return 'AttackHel';
     }
-    return new AttackAir(
-      scene,
-      position,
-      0,
-    );
+    return 'AttackAir';
   };
 
-  const warzoneEnemies = (number, position, scene) => {
+  const warzoneEnemies = (number) => {
     if (number >= 0 && number <= 1) {
-      return new Fighter(
-        scene,
-        position,
-        0,
-      );
+      return 'Fighter';
     } if (number > 1 && number <= 2) {
-      return new Bomber(
-        scene,
-        position,
-        0,
-      );
+      return 'Bomber';
     } if (number > 2 && number <= 4) {
-      return new Chaser(
-        scene,
-        position,
-        0,
-      );
+      return 'Chaser';
     } if (number > 4 && number <= 6) {
-      return new AttackHel(
-        scene,
-        position,
-        0,
-      );
+      return 'AttackHel';
     } if (number > 6 && number <= 8) {
-      return new AttackAir(
-        scene,
-        position,
-        0,
-      );
+      return 'AttackAir';
     }
-    return new Multirole(
-      scene,
-      position,
-      0,
-    );
+    return 'Multirole';
   };
 
-  const desertEnemies = (position, scene) => new Fighter(
-    scene,
-    position,
-    0,
-  );
+  const desertEnemies = () => 'Fighter';
 
-  const checkEnemies = (number, position, scene, key) => {
+  const checkEnemies = (number, key) => {
     switch (key) {
       case 'oasis':
-        return oasisEnemies(number, position, scene);
+        return oasisEnemies(number);
       case 'swamp':
-        return swampEnemies(number, position, scene);
+        return swampEnemies(number);
       case 'forest':
-        return forestEnemies(number, position, scene);
+        return forestEnemies(number);
       case 'river':
-        return riverEnemies(number, position, scene);
+        return riverEnemies(number);
       case 'warzone':
-        return warzoneEnemies(number, position, scene);
+        return warzoneEnemies(number);
       default:
-        return desertEnemies(position, scene);
+        return desertEnemies();
     }
   };
 
-  const stageBoss = (key, scene) => {
+  const stageBoss = (key) => {
     switch (key) {
       case 'oasis':
-        return new Boss2(scene);
+        return 'Boss2';
       case 'swamp':
-        return new Boss3(scene);
+        return 'Boss3';
       case 'forest':
-        return new Boss4(scene);
+        return 'Boss4';
       case 'river':
-        return new Boss5(scene);
+        return 'Boss5';
       case 'warzone':
-        return new Boss6(scene);
+        return 'Boss6';
       default:
-        return new Boss1(scene);
+        return 'Boss1';
     }
   };
 

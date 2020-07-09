@@ -49,3 +49,13 @@ describe('It should get the score from the local storage if its created', () => 
     expect(scenesLogic.checkScores()).toBe(0);
   });
 });
+
+describe('It should return the enemies class name based on a random number and the stage', () => {
+  test('Should return fighters if stage is desert', () => {
+    expect(scenesLogic.checkEnemies(5, 'desert')).toBe('Fighter');
+  });
+  test('Should create and return a new zeroed score if theres none in the local storage', () => {
+    localStorage.clear();
+    expect(scenesLogic.checkScores()).toBe(0);
+  });
+});

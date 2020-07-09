@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../objects/player';
 import scenesLogic from './scenes_logic';
+import enemiesFactory from '../objects/enemies_factory';
 
 let life1;
 let life2;
@@ -21,7 +22,7 @@ export default class GameScene extends Phaser.Scene {
   create() {
     const myself = this;
     this.add.image(400, 300, this.key).setDisplaySize(800, 600);
-    bonuses = scenesLogic.checkBonuses();
+    bonuses = scenesLogic.checkBonuses(this.key);
     score = scenesLogic.checkScores();
     life1 = this.add.image(750, 50, 'playerPlane').setDisplaySize(50, 50);
     life2 = this.add.image(700, 50, 'playerPlane').setDisplaySize(50, 50);
@@ -70,7 +71,9 @@ export default class GameScene extends Phaser.Scene {
         const number = Phaser.Math.Between(0, 10);
         const position = Phaser.Math.Between(0, this.game.config.width);
         if (this.stopEnemy === false) {
-          enemy = scenesLogic.checkEnemies(number, position, this, this.key);
+          let className = scenesLogic.checkEnemies(number, this.key);
+          let EnemyClass = enemiesFactory(className);
+          enemy = new EnemyClass(this, position, 0);
         }
         if (enemy !== null) {
           enemy.setScale(0.3);
@@ -81,12 +84,14 @@ export default class GameScene extends Phaser.Scene {
       loop: true,
     });
     this.time.addEvent({
-      delay: 50000,
+      delay: 10000,
       callback() {
         this.scene.pause();
         this.scene.launch(this.bossDialogue);
         this.stopEnemy = true;
-        const boss = scenesLogic.stageBoss(this.key, this);
+        let bossClassName = scenesLogic.stageBoss(this.key);
+        let BossClass = enemiesFactory(bossClassName);
+        let boss = new BossClass(this);
         if (boss !== null) {
           boss.setScale(0.8);
           this.enemies.add(boss);

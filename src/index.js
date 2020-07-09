@@ -3,8 +3,6 @@ import config from './config/config';
 import Music from './models/music';
 import Controller from './scenes/controller';
 
-localStorage.clear();
-
 class Game extends Phaser.Game {
   constructor() {
     super(config);
