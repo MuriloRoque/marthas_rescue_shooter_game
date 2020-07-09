@@ -122,7 +122,7 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
       if (!player.getData('isDead')
           && !enemy.getData('isDead')) {
-        if (enemy.constructor.name === this.boss) {
+        if (enemy.hp !== undefined) {
           player.explode(false);
           player.gameOver(this.currentScene);
           enemy.explode(true);

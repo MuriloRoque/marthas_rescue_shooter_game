@@ -195,7 +195,7 @@ const scenesLogic = (() => {
   }
 
   const desertEnemies = (position, scene) => {
-    enemy = new Fighter(
+    return new Fighter(
       scene,
       position,
       0,
@@ -215,7 +215,7 @@ const scenesLogic = (() => {
       case 'warzone':
         return warzoneEnemies(number, position, scene);
       default:
-        return desertEnemies(number, position, scene);
+        return desertEnemies(position, scene);
     }
   }
 
