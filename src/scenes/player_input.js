@@ -15,8 +15,13 @@ export default class PlayerInputScene extends Phaser.Scene {
       if (event.target.name === 'confirmButton') {
         const inputUsername = element.getChildByName('username');
         if (inputUsername.value !== '') {
-          putScore(inputUsername.value, localStorage.getItem('score'));
-          element.scene.scene.start('Title');
+          const loading = this.add.text(350, 250, 'Loading...', { color: 'white', fontFamily: 'Arial', fontSize: '24px ' });
+          putScore(inputUsername.value, localStorage.getItem('score')).then(() => {
+            loading.destroy();
+            element.scene.scene.start('Title');
+          }).catch(() => {
+
+          });
         } else {
           element.scene.tweens.add({
             targets: text, alpha: 0.1, duration: 200, ease: 'Power3', yoyo: true,

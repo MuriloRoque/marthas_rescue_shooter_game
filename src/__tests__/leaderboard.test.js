@@ -20,6 +20,8 @@ describe('The scores and usernames should be written and read from the API', () 
           }),
         ]),
       );
+    }).catch(() => {
+
     });
   });
   test('The object should contain the created score', () => {
@@ -31,6 +33,8 @@ describe('The scores and usernames should be written and read from the API', () 
           }),
         ]),
       );
+    }).catch(() => {
+
     });
   });
 });

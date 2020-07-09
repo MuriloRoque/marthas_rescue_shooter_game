@@ -12,14 +12,12 @@ import Boss5 from '../objects/bosses/chapter5_boss';
 import Boss6 from '../objects/bosses/chapter6_boss';
 
 const scenesLogic = (() => {
-
   const updateBonuses = (key, buttonText) => {
     let bonuses;
-      if (key === 'desert') {
-        bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
-      } else {
-        bonuses = JSON.parse(localStorage.getItem('bonuses'));
-      }
+    if (key === 'desert') {
+      bonuses = { bonus1: 0, bonus2: 0, bonus3: 0 };
+    } else {
+      bonuses = JSON.parse(localStorage.getItem('bonuses'));
       if (buttonText === 'Missile + (Max 3)') {
         bonuses.bonus1 += 1;
       } else if (buttonText === 'Move Speed') {
@@ -27,31 +25,29 @@ const scenesLogic = (() => {
       } else {
         bonuses.bonus3 += 1;
       }
-      localStorage.setItem('bonuses', JSON.stringify(bonuses));
+    }
+    localStorage.setItem('bonuses', JSON.stringify(bonuses));
   };
 
   const checkBoss = (boss) => {
     if (boss) {
       return 'Start Fight!';
-    } else {
-      return 'Next';
     }
+    return 'Next';
   };
 
   const checkBonuses = () => {
     if (localStorage.getItem('bonuses') !== null) {
       return JSON.parse(localStorage.getItem('bonuses'));
-    } else {
-      return { bonus1: 0, bonus2: 0, bonus3: 0 };
     }
+    return { bonus1: 0, bonus2: 0, bonus3: 0 };
   };
 
   const checkScores = () => {
     if (localStorage.getItem('score') !== null) {
       return JSON.parse(localStorage.getItem('score'));
-    } else {
-      return 0;
     }
+    return 0;
   };
 
   const oasisEnemies = (number, position, scene) => {
@@ -61,14 +57,13 @@ const scenesLogic = (() => {
         position,
         0,
       );
-    } else if (number > 5) {
-      return new Bomber(
-        scene,
-        position,
-        0,
-      );
     }
-  }
+    return new Bomber(
+      scene,
+      position,
+      0,
+    );
+  };
 
   const swampEnemies = (number, position, scene) => {
     if (number >= 0 && number <= 3) {
@@ -77,20 +72,19 @@ const scenesLogic = (() => {
         position,
         0,
       );
-    } else if (number > 3 && number <= 6) {
+    } if (number > 3 && number <= 6) {
       return new Bomber(
         scene,
         position,
         0,
       );
-    } else if (number > 6) {
-      return new Chaser(
-        scene,
-        position,
-        0,
-      );
     }
-  }
+    return new Chaser(
+      scene,
+      position,
+      0,
+    );
+  };
 
   const forestEnemies = (number, position, scene) => {
     if (number >= 0 && number <= 2) {
@@ -99,26 +93,25 @@ const scenesLogic = (() => {
         position,
         0,
       );
-    } else if (number > 2 && number <= 4) {
+    } if (number > 2 && number <= 4) {
       return new Bomber(
         scene,
         position,
         0,
       );
-    } else if (number > 4 && number <= 7) {
+    } if (number > 4 && number <= 7) {
       return new Chaser(
         scene,
         position,
         0,
       );
-    } else if (number > 7) {
-      return new AttackHel(
-        scene,
-        position,
-        0,
-      );
     }
-  }
+    return new AttackHel(
+      scene,
+      position,
+      0,
+    );
+  };
 
   const riverEnemies = (number, position, scene) => {
     if (number >= 0 && number <= 2) {
@@ -127,32 +120,31 @@ const scenesLogic = (() => {
         position,
         0,
       );
-    } else if (number > 2 && number <= 4) {
+    } if (number > 2 && number <= 4) {
       return new Bomber(
         scene,
         position,
         0,
       );
-    } else if (number > 4 && number <= 6) {
+    } if (number > 4 && number <= 6) {
       return new Chaser(
         scene,
         position,
         0,
       );
-    } else if (number > 6 && number <= 8) {
+    } if (number > 6 && number <= 8) {
       return new AttackHel(
         scene,
         position,
         0,
       );
-    } else if (number > 8 && number <= 10) {
-      return new AttackAir(
-        scene,
-        position,
-        0,
-      );
     }
-  }
+    return new AttackAir(
+      scene,
+      position,
+      0,
+    );
+  };
 
   const warzoneEnemies = (number, position, scene) => {
     if (number >= 0 && number <= 1) {
@@ -161,46 +153,43 @@ const scenesLogic = (() => {
         position,
         0,
       );
-    } else if (number > 1 && number <= 2) {
+    } if (number > 1 && number <= 2) {
       return new Bomber(
         scene,
         position,
         0,
       );
-    } else if (number > 2 && number <= 4) {
+    } if (number > 2 && number <= 4) {
       return new Chaser(
         scene,
         position,
         0,
       );
-    } else if (number > 4 && number <= 6) {
+    } if (number > 4 && number <= 6) {
       return new AttackHel(
         scene,
         position,
         0,
       );
-    } else if (number > 6 && number <= 8) {
+    } if (number > 6 && number <= 8) {
       return new AttackAir(
         scene,
         position,
         0,
       );
-    } else if (number > 8 && number <= 10) {
-      return new Multirole(
-        scene,
-        position,
-        0,
-      );
     }
-  }
-
-  const desertEnemies = (position, scene) => {
-    return new Fighter(
+    return new Multirole(
       scene,
       position,
       0,
     );
-  }
+  };
+
+  const desertEnemies = (position, scene) => new Fighter(
+    scene,
+    position,
+    0,
+  );
 
   const checkEnemies = (number, position, scene, key) => {
     switch (key) {
@@ -217,7 +206,7 @@ const scenesLogic = (() => {
       default:
         return desertEnemies(position, scene);
     }
-  }
+  };
 
   const stageBoss = (key, scene) => {
     switch (key) {
@@ -234,9 +223,11 @@ const scenesLogic = (() => {
       default:
         return new Boss1(scene);
     }
-  }
+  };
 
-  return { updateBonuses, checkBoss, checkBonuses, checkScores, checkEnemies, stageBoss };
+  return {
+    updateBonuses, checkBoss, checkBonuses, checkScores, checkEnemies, stageBoss,
+  };
 })();
 
 export default scenesLogic;

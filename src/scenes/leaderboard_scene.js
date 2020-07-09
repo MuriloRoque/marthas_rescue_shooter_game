@@ -18,6 +18,8 @@ export default class LeaderboardScene extends Phaser.Scene {
       for (let i = 0; i <= 4; i += 1) {
         this.add.bitmapText(100, 90 * (i + 1), 'arcade', ` ${i + 1}     ${scores[i].score}   ${scores[i].user}`).setTint(0xff0000);
       }
+    }).catch(() => {
+
     });
   }
 }
