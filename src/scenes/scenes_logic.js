@@ -24,7 +24,7 @@ const scenesLogic = (() => {
   };
 
   const checkBonuses = (key) => {
-    if(key === 'desert'){
+    if (key === 'desert') {
       localStorage.clear();
     }
     if (localStorage.getItem('bonuses') !== null) {

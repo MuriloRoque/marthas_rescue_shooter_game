@@ -11,10 +11,21 @@ import Boss4 from './bosses/chapter4_boss';
 import Boss5 from './bosses/chapter5_boss';
 import Boss6 from './bosses/chapter6_boss';
 
-const classes = { Fighter, Bomber, Chaser, AttackHel, AttackAir, Multirole, Boss1, Boss2, Boss3, Boss4, Boss5, Boss6 };
-
-const enemiesFactory = (name) => {
-  return classes[name];
+const classes = {
+  Fighter,
+  Bomber,
+  Chaser,
+  AttackHel,
+  AttackAir,
+  Multirole,
+  Boss1,
+  Boss2,
+  Boss3,
+  Boss4,
+  Boss5,
+  Boss6,
 };
+
+const enemiesFactory = (name) => classes[name];
 
 export default enemiesFactory;

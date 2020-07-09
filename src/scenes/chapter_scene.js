@@ -71,8 +71,8 @@ export default class GameScene extends Phaser.Scene {
         const number = Phaser.Math.Between(0, 10);
         const position = Phaser.Math.Between(0, this.game.config.width);
         if (this.stopEnemy === false) {
-          let className = scenesLogic.checkEnemies(number, this.key);
-          let EnemyClass = enemiesFactory(className);
+          const className = scenesLogic.checkEnemies(number, this.key);
+          const EnemyClass = enemiesFactory(className);
           enemy = new EnemyClass(this, position, 0);
         }
         if (enemy !== null) {
@@ -89,9 +89,9 @@ export default class GameScene extends Phaser.Scene {
         this.scene.pause();
         this.scene.launch(this.bossDialogue);
         this.stopEnemy = true;
-        let bossClassName = scenesLogic.stageBoss(this.key);
-        let BossClass = enemiesFactory(bossClassName);
-        let boss = new BossClass(this);
+        const bossClassName = scenesLogic.stageBoss(this.key);
+        const BossClass = enemiesFactory(bossClassName);
+        const boss = new BossClass(this);
         if (boss !== null) {
           boss.setScale(0.8);
           this.enemies.add(boss);
