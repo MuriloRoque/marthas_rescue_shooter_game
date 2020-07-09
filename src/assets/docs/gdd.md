@@ -302,9 +302,9 @@ This project was built using [Phaser 3](https://phaser.io/phaser3), [Webpack](ht
 
 - Thanks to the following TSEs who reviewed my project:
 
-  - TSE 1
-  - TSE 2
-  - TSE 3
+  - [Louis Chia](https://github.com/shloch)
+  - [Sérgio Torres](https://github.com/Torres-ssf)
+  - [James Okunlade](https://github.com/JamesOkunlade)
 
 - Thanks to [OpenGameArt](https://opengameart.org/) for providing the free assets I used in this game. The full list of authors is bellow:
 
