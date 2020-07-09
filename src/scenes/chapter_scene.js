@@ -1,11 +1,5 @@
 import Phaser from 'phaser';
 import Player from '../objects/player';
-import Fighter from '../objects/enemies/fighter';
-import Bomber from '../objects/enemies/bomber';
-import Chaser from '../objects/enemies/chaser';
-import AttackHel from '../objects/enemies/attack_hel';
-import AttackAir from '../objects/enemies/attack_air';
-import Multirole from '../objects/enemies/multirole';
 import Boss1 from '../objects/bosses/chapter1_boss';
 import Boss2 from '../objects/bosses/chapter2_boss';
 import Boss3 from '../objects/bosses/chapter3_boss';
@@ -34,11 +28,7 @@ export default class GameScene extends Phaser.Scene {
     const myself = this;
     this.add.image(400, 300, this.key).setDisplaySize(800, 600);
     bonuses = scenesLogic.checkBonuses();
-    if (localStorage.getItem('score') !== null) {
-      score = JSON.parse(localStorage.getItem('score'));
-    } else {
-      score = 0;
-    }
+    score = scenesLogic.checkScores();
     life1 = this.add.image(750, 50, 'playerPlane').setDisplaySize(50, 50);
     life2 = this.add.image(700, 50, 'playerPlane').setDisplaySize(50, 50);
     life3 = this.add.image(650, 50, 'playerPlane').setDisplaySize(50, 50);
@@ -85,150 +75,8 @@ export default class GameScene extends Phaser.Scene {
         let enemy = null;
         const number = Phaser.Math.Between(0, 10);
         const position = Phaser.Math.Between(0, this.game.config.width);
-        switch (this.key) {
-          case 'oasis':
-            if (number >= 0 && number <= 5 && this.stopEnemy === false) {
-              enemy = new Fighter(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 5 && this.stopEnemy === false) {
-              enemy = new Bomber(
-                this,
-                position,
-                0,
-              );
-            }
-            break;
-          case 'swamp':
-            if (number >= 0 && number <= 3 && this.stopEnemy === false) {
-              enemy = new Fighter(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 3 && number <= 6 && this.stopEnemy === false) {
-              enemy = new Bomber(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 6 && this.stopEnemy === false) {
-              enemy = new Chaser(
-                this,
-                position,
-                0,
-              );
-            }
-            break;
-          case 'forest':
-            if (number >= 0 && number <= 2 && this.stopEnemy === false) {
-              enemy = new Fighter(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 2 && number <= 4 && this.stopEnemy === false) {
-              enemy = new Bomber(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 4 && number <= 7 && this.stopEnemy === false) {
-              enemy = new Chaser(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 7 && this.stopEnemy === false) {
-              enemy = new AttackHel(
-                this,
-                position,
-                0,
-              );
-            }
-            break;
-          case 'river':
-            if (number >= 0 && number <= 2 && this.stopEnemy === false) {
-              enemy = new Fighter(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 2 && number <= 4 && this.stopEnemy === false) {
-              enemy = new Bomber(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 4 && number <= 6 && this.stopEnemy === false) {
-              enemy = new Chaser(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 6 && number <= 8 && this.stopEnemy === false) {
-              enemy = new AttackHel(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 8 && number <= 10 && this.stopEnemy === false) {
-              enemy = new AttackAir(
-                this,
-                position,
-                0,
-              );
-            }
-            break;
-          case 'warzone':
-            if (number >= 0 && number <= 1 && this.stopEnemy === false) {
-              enemy = new Fighter(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 1 && number <= 2 && this.stopEnemy === false) {
-              enemy = new Bomber(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 2 && number <= 4 && this.stopEnemy === false) {
-              enemy = new Chaser(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 4 && number <= 6 && this.stopEnemy === false) {
-              enemy = new AttackHel(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 6 && number <= 8 && this.stopEnemy === false) {
-              enemy = new AttackAir(
-                this,
-                position,
-                0,
-              );
-            } else if (number > 8 && number <= 10 && this.stopEnemy === false) {
-              enemy = new Multirole(
-                this,
-                position,
-                0,
-              );
-            }
-            break;
-          default:
-            if (this.stopEnemy === false) {
-              enemy = new Fighter(
-                this,
-                position,
-                0,
-              );
-            }
+        if(this.stopEnemy === false){
+          enemy = scenesLogic.checkEnemies(number, position, this, this.key);
         }
         if (enemy !== null) {
           enemy.setScale(0.3);

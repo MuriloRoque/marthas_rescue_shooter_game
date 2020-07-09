@@ -1,3 +1,10 @@
+import Fighter from '../objects/enemies/fighter';
+import Bomber from '../objects/enemies/bomber';
+import Chaser from '../objects/enemies/chaser';
+import AttackHel from '../objects/enemies/attack_hel';
+import AttackAir from '../objects/enemies/attack_air';
+import Multirole from '../objects/enemies/multirole';
+
 const scenesLogic = (() => {
 
   const updateBonuses = (key, buttonText) => {
@@ -33,7 +40,180 @@ const scenesLogic = (() => {
     }
   };
 
-  return { updateBonuses, checkBoss, checkBonuses };
+  const checkScores = () => {
+    if (localStorage.getItem('score') !== null) {
+      return JSON.parse(localStorage.getItem('score'));
+    } else {
+      return 0;
+    }
+  };
+
+  const oasisEnemies = (number, position, scene) => {
+    if (number >= 0 && number <= 5) {
+      return new Fighter(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 5) {
+      return new Bomber(
+        scene,
+        position,
+        0,
+      );
+    }
+  }
+
+  const swampEnemies = (number, position, scene) => {
+    if (number >= 0 && number <= 3) {
+      return new Fighter(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 3 && number <= 6) {
+      return new Bomber(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 6) {
+      return new Chaser(
+        scene,
+        position,
+        0,
+      );
+    }
+  }
+
+  const forestEnemies = (number, position, scene) => {
+    if (number >= 0 && number <= 2) {
+      return new Fighter(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 2 && number <= 4) {
+      return new Bomber(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 4 && number <= 7) {
+      return new Chaser(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 7) {
+      return new AttackHel(
+        scene,
+        position,
+        0,
+      );
+    }
+  }
+
+  const riverEnemies = (number, position, scene) => {
+    if (number >= 0 && number <= 2) {
+      return new Fighter(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 2 && number <= 4) {
+      return new Bomber(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 4 && number <= 6) {
+      return new Chaser(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 6 && number <= 8) {
+      return new AttackHel(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 8 && number <= 10) {
+      return new AttackAir(
+        scene,
+        position,
+        0,
+      );
+    }
+  }
+
+  const warzoneEnemies = (number, position, scene) => {
+    if (number >= 0 && number <= 1) {
+      return new Fighter(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 1 && number <= 2) {
+      return new Bomber(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 2 && number <= 4) {
+      return new Chaser(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 4 && number <= 6) {
+      return new AttackHel(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 6 && number <= 8) {
+      return new AttackAir(
+        scene,
+        position,
+        0,
+      );
+    } else if (number > 8 && number <= 10) {
+      return new Multirole(
+        scene,
+        position,
+        0,
+      );
+    }
+  }
+
+  const desertEnemies = (position, scene) => {
+    enemy = new Fighter(
+      scene,
+      position,
+      0,
+    );
+  }
+
+  const checkEnemies = (number, position, scene, key) => {
+    switch (key) {
+      case 'oasis':
+        return oasisEnemies(number, position, scene);
+      case 'swamp':
+        return swampEnemies(number, position, scene);
+      case 'forest':
+        return forestEnemies(number, position, scene);
+      case 'river':
+        return riverEnemies(number, position, scene);
+      case 'warzone':
+        return warzoneEnemies(number, position, scene);
+      default:
+        return desertEnemies(number, position, scene);
+    }
+  }
+
+  return { updateBonuses, checkBoss, checkBonuses, checkScores, checkEnemies };
 })();
 
 export default scenesLogic;
