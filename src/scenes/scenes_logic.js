@@ -4,6 +4,12 @@ import Chaser from '../objects/enemies/chaser';
 import AttackHel from '../objects/enemies/attack_hel';
 import AttackAir from '../objects/enemies/attack_air';
 import Multirole from '../objects/enemies/multirole';
+import Boss1 from '../objects/bosses/chapter1_boss';
+import Boss2 from '../objects/bosses/chapter2_boss';
+import Boss3 from '../objects/bosses/chapter3_boss';
+import Boss4 from '../objects/bosses/chapter4_boss';
+import Boss5 from '../objects/bosses/chapter5_boss';
+import Boss6 from '../objects/bosses/chapter6_boss';
 
 const scenesLogic = (() => {
 
@@ -213,7 +219,24 @@ const scenesLogic = (() => {
     }
   }
 
-  return { updateBonuses, checkBoss, checkBonuses, checkScores, checkEnemies };
+  const stageBoss = (key, scene) => {
+    switch (key) {
+      case 'oasis':
+        return new Boss2(scene);
+      case 'swamp':
+        return new Boss3(scene);
+      case 'forest':
+        return new Boss4(scene);
+      case 'river':
+        return new Boss5(scene);
+      case 'warzone':
+        return new Boss6(scene);
+      default:
+        return new Boss1(scene);
+    }
+  }
+
+  return { updateBonuses, checkBoss, checkBonuses, checkScores, checkEnemies, stageBoss };
 })();
 
 export default scenesLogic;

@@ -1,11 +1,5 @@
 import Phaser from 'phaser';
 import Player from '../objects/player';
-import Boss1 from '../objects/bosses/chapter1_boss';
-import Boss2 from '../objects/bosses/chapter2_boss';
-import Boss3 from '../objects/bosses/chapter3_boss';
-import Boss4 from '../objects/bosses/chapter4_boss';
-import Boss5 from '../objects/bosses/chapter5_boss';
-import Boss6 from '../objects/bosses/chapter6_boss';
 import scenesLogic from './scenes_logic';
 
 let life1;
@@ -92,26 +86,7 @@ export default class GameScene extends Phaser.Scene {
         this.scene.pause();
         this.scene.launch(this.bossDialogue);
         this.stopEnemy = true;
-        let boss = null;
-        switch (this.key) {
-          case 'oasis':
-            boss = new Boss2(this);
-            break;
-          case 'swamp':
-            boss = new Boss3(this);
-            break;
-          case 'forest':
-            boss = new Boss4(this);
-            break;
-          case 'river':
-            boss = new Boss5(this);
-            break;
-          case 'warzone':
-            boss = new Boss6(this);
-            break;
-          default:
-            boss = new Boss1(this);
-        }
+        let boss = scenesLogic.stageBoss(this.key, this);
         if (boss !== null) {
           boss.setScale(0.8);
           this.enemies.add(boss);
