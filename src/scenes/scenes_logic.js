@@ -17,7 +17,15 @@ const scenesLogic = (() => {
       localStorage.setItem('bonuses', JSON.stringify(bonuses));
   };
 
-  return { updateBonuses };
+  const checkBoss = (boss) => {
+    if (boss) {
+      return 'Start Fight!';
+    } else {
+      return 'Next';
+    }
+  };
+
+  return { updateBonuses, checkBoss };
 })();
 
 export default scenesLogic;

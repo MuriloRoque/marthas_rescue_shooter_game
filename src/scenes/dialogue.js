@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import createLabel from '../create_label';
+import scenesLogic from './scenes_logic';
 
 export default class Dialogue extends Phaser.Scene {
   constructor(scene, key, title, content, description, nextScene, boss = false) {
@@ -10,11 +11,7 @@ export default class Dialogue extends Phaser.Scene {
     this.description = description;
     this.nextScene = nextScene;
     this.boss = boss;
-    if (this.boss) {
-      this.label = 'Start Fight!';
-    } else {
-      this.label = 'Next';
-    }
+    this.label = scenesLogic.checkBoss(this.boss);
   }
 
   create() {
