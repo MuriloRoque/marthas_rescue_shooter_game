@@ -49,8 +49,8 @@ In this project I:
 
 ## Built with
 
-- Javascript;
-- Phaser 3;
+- Javascript.
+- Phaser 3.
 - Jest.
 
 ## Live Demo
